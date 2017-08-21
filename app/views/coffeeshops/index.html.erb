@@ -1,0 +1,7 @@
+<h1>Here is the list of all cafes</h1>
+
+<% @coffeeshops.each do |cs| %>
+  <p>
+    <%= cs.name %>, <%= cs.address %>
+  </p>
+<% end %>

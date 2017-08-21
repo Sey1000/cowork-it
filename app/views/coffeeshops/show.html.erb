@@ -1,0 +1,6 @@
+<h1>These are available desks in this cafe</h1>
+
+<% @coffeeshop.desks.each do |ds| %>
+  <%= ds.start_time %> - <%= ds.end_time %>
+  wifi: <%= ds.wifi %>, power outlet: <%= ds.power_outlet %>
+<% end %>
