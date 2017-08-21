@@ -28,23 +28,23 @@ coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Decent Cafe", 
 
 # Seeds for Desk
 t = Time.now
-deskA = Desk.new(wifi: true, power_outlet: true, start_time: t + 2.hours, end_time: t + 5.hours, cost: 5)
+deskA = Desk.new(wifi: true, power_outlet: true, start_time: t + 2.hours, end_time: t + 5.hours, cost: 5, capacity: 4)
 deskA.coffeeshop = coffeeA
 deskA.save
 
-deskB = Desk.new(wifi: true, power_outlet: true, start_time: t + 13.hours, end_time: t + 17.hours, cost: 3)
+deskB = Desk.new(wifi: true, power_outlet: true, start_time: t + 13.hours, end_time: t + 17.hours, cost: 3, capacity: 5)
 deskB.coffeeshop = coffeeA
 deskB.save
 
-deskC = Desk.new(wifi: true, power_outlet: true, start_time: t + 1.hours, end_time: t + 4.hours, cost: 10)
+deskC = Desk.new(wifi: true, power_outlet: true, start_time: t + 1.hours, end_time: t + 4.hours, cost: 10, capacity: 3)
 deskC.coffeeshop = coffeeB
 deskC.save
 
-deskD = Desk.new(wifi: true, power_outlet: true, start_time: t + 20.hours, end_time: t + 24.hours, cost: 5)
+deskD = Desk.new(wifi: true, power_outlet: true, start_time: t + 20.hours, end_time: t + 24.hours, cost: 5, capacity: 4)
 deskD.coffeeshop = coffeeB
 deskD.save
 
-deskE = Desk.new(wifi: true, power_outlet: false, start_time: t + 2.hours, end_time: t + 4.hours, cost: 5)
+deskE = Desk.new(wifi: true, power_outlet: false, start_time: t + 2.hours, end_time: t + 4.hours, cost: 5, capacity: 5)
 deskE.coffeeshop = coffeeC
 deskE.save
 
