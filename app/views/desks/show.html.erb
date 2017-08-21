@@ -1,0 +1,19 @@
+<h3>Available time</h3>
+<p>
+  <%= @desk.start_time.to_s[5..15] %> - <%= @desk.end_time.to_s[11..15] %>
+</p>
+<p>
+  wifi: <%= @desk.wifi ? "yes" : "no" %>
+</p>
+<p>
+  power outlet: <%= @desk.power_outlet ? "yes" : "no" %>
+</p>
+<p>
+  Per hour rate: <%= @desk.cost %>€
+</p>
+
+
+<p>
+  
+</p>
+<!-- button that can let me make booking -->
