@@ -1,0 +1,12 @@
+<h1>These are available desks in <%= @coffeeshop.name %></h1>
+
+<ol>
+<% @coffeeshop.desks.each do |ds| %>
+  <%= link_to coffeeshop_desk_path(@coffeeshop, ds) do %>
+    <li>
+      <%= ds.start_time.to_s[5..15] %> - <%= ds.end_time.to_s[11..15] %>
+    </li>
+  <% end %>
+  <br>
+<% end %>
+</ol>

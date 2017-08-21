@@ -1,0 +1,9 @@
+<h1>Here is the list of all coffeeshops</h1>
+
+<ul>
+<% @coffeeshops.each do |cs| %>
+  <li>
+  <%= link_to cs.name, coffeeshop_path(cs) %>
+  </li>
+<% end %>
+</ul>
