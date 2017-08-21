@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :coffeshops, only: [:index, :show] do
+  resources :coffeeshops, only: [:index, :show] do
     resources :desks, only: [:show]
   end
 

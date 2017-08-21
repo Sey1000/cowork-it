@@ -1,7 +1,9 @@
-<h1>Here is the list of all cafes</h1>
+<h1>Here is the list of all coffeeshops</h1>
 
+<ul>
 <% @coffeeshops.each do |cs| %>
-  <p>
-    <%= cs.name %>, <%= cs.address %>
-  </p>
+  <li>
+  <%= link_to cs.name, coffeeshop_path(cs) %>
+  </li>
 <% end %>
+</ul>
