@@ -1,0 +1,13 @@
+<form action="/coffeeshops" method="get">
+  <input type="date" name="date" class="datepicker" placeholder="Date">
+  <input type="text" name="start_time" placeholder="Start time">
+  <input type="text" name="hours" placeholder="Hours">
+  <input type="submit" value="Start now" class="btn-red">
+</form>
+<%#= simple_form_for @coffeeshop do |f| %>
+  <%#= f.input :date, as: :string, input_html: { class: 'datepicker' }  %>
+  <%#= f.input :start_time, placeholder="Start time" %>
+  <%#= f.input :hours, placeholder="For how long?" %>
+  <%#= f.submit %>
+<%# end %>
+
