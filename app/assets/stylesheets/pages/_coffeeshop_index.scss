@@ -1,0 +1,8 @@
+.main-container {
+  display: flex;
+}
+
+.cards {
+  flex: 0 0 calc(100vw - 450px);
+  margin: 0px 20px;
+}
