@@ -1,13 +1,16 @@
-<h1>Here is the list of all coffeeshops</h1>
-
-<ul>
-<% @coffeeshops.each do |cs| %>
-  <li>
-  <%= link_to cs.name, coffeeshop_path(cs) %>
-  </li>
-<% end %>
-</ul>
-
+<div class="wrapper-grey text-center">
+  <h2>Here is the list of all coffeeshops</h2>
+  <div class="main-container">
+    <div class="cards">
+      <div class="row">
+        <% @coffeeshops.each do |cs| %>
+          <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour } %>
+        <% end %>
+      </div>
+    </div>
+    <div id="map">GOOGLE MAP</div>
+  </div>
+</div>
 
 <div id="map" style="width: 400px; height: 600px;"></div>
 
