@@ -10,7 +10,7 @@ Coffeeshops - <%= @coffeeshop.name %>
     <!-- setting some local variables for logic -->
     <% start = desk.start_time.hour %>
     <% end_var = desk.end_time.hour %>
-    <div class="each-desk" data-id=<%= desk.id %>>
+    <div class="each-desk" data-id="<%= desk.id %>">
       <div class="desk-head">
         <div class="desk-hour">
           <p><%= desk.str_date %></p>
@@ -24,7 +24,7 @@ Coffeeshops - <%= @coffeeshop.name %>
         <div class="desk-time-list">
           <% btn_time = start %>
           <% (desk.hour_count + 1).times do %>
-          <div class="btn btn-success btn-lg time-select-btn" data-id=<%= btn_time %>>
+          <div class="btn btn-success btn-lg time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-time="<%= desk.start_time %>" data-date="<%= desk.str_date %>">
             <%= btn_time %>
           </div>
           <% btn_time += 1 %>
@@ -52,21 +52,23 @@ Coffeeshops - <%= @coffeeshop.name %>
   </div>
   <div class="col-xs-3 summary-right">
     <div class="summary-head">
-      SUMMARY
+      YOUR DESK
     </div>
     <div class="summary-body">
     <div id="booking-coffeeshop-name">
-    <%= @coffeeshop.name %>
+    <h4>
+      <%= @coffeeshop.name %>
+    </h4>
     </div>
-    <div id="booking-desk-date">      
-      WHAT DATE
-    </div>
-    <div id="booking-time-range">
+    <p id="booking-desk-date">      
+      DATE
+    </p>
+    <p id="booking-time-range">
       FROM WHEN TO WHEN
-    </div>
+    </p>
       <%= simple_form_for(@booking) do |f| %>
         <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
-        <%= f.input :time_int, as: :hidden, input_html: { id: "hidden-start-time" } %>
+        <%= f.input :start_time, as: :hidden, input_html: { id: "hidden-start-time" } %>
         <%= f.submit "Reserve", class: "btn btn-primary" %>
       <% end %>
     </div>
