@@ -1,12 +1,39 @@
+<%= render 'shared/coffeeshop_banner' %>
+
 <h1>These are available desks in <%= @coffeeshop.name %></h1>
 
-<ol>
-<% @coffeeshop.desks.each do |ds| %>
-  <%= link_to coffeeshop_desk_path(@coffeeshop, ds) do %>
-    <li>
-      <%= ds.start_time.to_s[5..15] %> - <%= ds.end_time.to_s[11..15] %>
-    </li>
-  <% end %>
-  <br>
-<% end %>
-</ol>
+<div class="row">
+  <div class="col-xs-9 desks-container">
+    <% @coffeeshop.desks.each do |desk| %>
+      <div class="each-desk">
+        <div class="desk-head">
+          <div class="desk-hour">
+            <p><%= desk.start_time.to_s[5..9] %></p>
+            <p><%= desk.start_time.to_s[11..15] %> - <%= desk.end_time.to_s[11..15] %></p>
+          </div>
+          <div class="per-hour-rate">
+            <%= desk.cost %>€ / hr
+          </div>
+        </div>
+        <div class="desk-body">
+          <div class="desk-time-list">
+              <% count = ((desk.end_time - desk.start_time)/3600).to_i %>
+              <% start = desk.start_time.to_s[11..13].to_i %>
+              <% (count + 1).times do %>
+                <div class="desk-each-hour btn btn-default">
+                  <%= start < 24 ? start : start - 24 %>
+                </div>
+                <% start += 1 %>
+              <% end %>
+          </div>
+          <div class="desk-avatars-container">
+            
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-3 summary-right">
+    
+  </div>
+</div>

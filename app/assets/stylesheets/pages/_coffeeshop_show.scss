@@ -1,0 +1,45 @@
+.desks-container {
+  border: 1px solid green;
+  padding: 40px;
+}
+
+.summary-right {
+  border: 1px solid blue;
+  padding: 40px;
+}
+
+.each-desk {
+  border: 1px solid orange;
+  position: relative;
+  margin-bottom: 30px;
+
+  .desk-head {
+    background: #B3B3B3;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desk-body {
+    // background: yellow;
+    display: flex;
+
+    .desk-time-list {
+      // background: #E6A4EB;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border-right: 1px solid gray;
+
+      .desk-each-hour {
+        // border: 1px solid red;
+        // margin: 10px;
+      }
+    }
+
+    .desk-avatars-container {
+      background: green;
+    }
+  }
+}
