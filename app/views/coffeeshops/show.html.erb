@@ -8,7 +8,6 @@
   <div class="col-xs-9 desks-container">
     <% @coffeeshop.desks.each do |desk| %>
     <!-- setting some local variables for logic -->
-    <% date = desk.start_time.strftime("%m-%d") %>
     <% count = ((desk.end_time - desk.start_time)/3600).to_i %>
     <% start = desk.start_time.hour %>
     <% end_var = desk.end_time.hour %>
@@ -16,7 +15,7 @@
     <div class="each-desk">
       <div class="desk-head">
         <div class="desk-hour">
-          <p><%= date %> <%= desk.id %></p>
+          <p><%= desk.str_date %> <%= desk.id %></p>
           <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
         </div>
         <div class="per-hour-rate">
