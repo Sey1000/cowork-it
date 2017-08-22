@@ -55,10 +55,20 @@ Coffeeshops - <%= @coffeeshop.name %>
       SUMMARY
     </div>
     <div class="summary-body">
-      WHICH COFFEESHOP <br><br>
-      WHAT DATE <br><br>
+    <div id="booking-coffeeshop-name">
+    <%= @coffeeshop.name %>
+    </div>
+    <div id="booking-desk-date">      
+      WHAT DATE
+    </div>
+    <div id="booking-time-range">
       FROM WHEN TO WHEN
     </div>
-    <div class="btn btn-primary">Reserve</div>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
+        <%= f.input :time_int, as: :hidden, input_html: { id: "hidden-start-time" } %>
+        <%= f.submit "Reserve", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
