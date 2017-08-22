@@ -1,0 +1,64 @@
+.desks-container {
+  border: 1px solid green;
+  padding: 40px;
+}
+
+.each-desk {
+  border: 1px solid orange;
+  position: relative;
+  margin-bottom: 30px;
+
+  .desk-head {
+    background: #CCCCCC;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desk-body {
+    // background: yellow;
+    display: flex;
+
+    .desk-time-list {
+      // background: #E6A4EB;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border-right: 1px solid gray;
+    }
+
+    .desk-avatars-container {
+      padding: 12px 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .time-slot {
+        border: 1px solid black;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.summary-right {
+  position: fixed;
+  right: 0;
+  border: 1px solid blue;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .summary-head {
+    border: 1px solid red;
+    margin-bottom: 20px;
+  }
+
+  .summary-body {
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+}
