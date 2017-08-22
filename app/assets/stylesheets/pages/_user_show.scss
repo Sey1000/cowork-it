@@ -1,0 +1,96 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 700px;
+}
+.avatar-lg {
+  margin-top: 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 200px;
+  width: 600px;
+  padding: 30px;
+}
+.profile-header {
+  grid-row: 1 / span 1;
+  grid-column: 1/ span 3;
+  border-bottom: 1px solid rgb(220,220,220);
+  p {
+    margin-bottom: 3px;
+  }
+}
+
+.first_name-header {
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 1;
+  margin-top: 10px;
+}
+
+.first_name {
+  grid-row: 2 / span 1;
+  grid-column: 2/ span 2;
+  margin-top: 10px;
+}
+.last_name-header {
+  grid-row: 3 / span 1;
+  grid-column: 1/ span 1;
+}
+
+.last_name {
+  grid-row: 3 / span 1;
+  grid-column: 2/ span 2;
+}
+.email-header {
+  grid-row: 4 / span 1;
+  grid-column: 1/ span 1;
+}
+
+.email {
+  grid-row: 4 / span 1;
+  grid-column: 2/ span 2;
+}
+.change-password {
+  grid-row: 5 / span 1;
+  grid-column: 1/ span 3;
+  margin-bottom: 20px;
+}
+.bookings-header {
+  grid-row: 6 / span 1;
+  grid-column: 1/ span 3;
+  border-bottom: 1px solid rgb(220,220,220);
+  p {
+    margin-bottom: 3px;
+  }
+}
+.date-header {
+  grid-row: 7 / span 1;
+  grid-column: 1/ span 1;
+  margin-top: 10px;
+}
+.time-header {
+  grid-row: 7 / span 1;
+  grid-column: 2/ span 1;
+  margin-top: 10px;
+}
+.coffeeshop-header {
+  grid-row: 7 / span 1;
+  grid-column: 3/ span 1;
+  margin-top: 10px;
+}
+.date {
+  grid-row: 8 / span 1;
+  grid-column: 1/ span 1;
+}
+
+.time {
+  grid-row: 8 / span 1;
+  grid-column: 2/ span 1;
+}
+
+.coffeeshop-name {
+  grid-row: 8 / span 1;
+  grid-column: 3/ span 1;
+}
