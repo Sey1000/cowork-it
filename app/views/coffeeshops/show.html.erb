@@ -4,13 +4,14 @@
   <div class="col-xs-9 desks-container">
     <% @coffeeshop.desks.each do |desk| %>
     <!-- setting some local variables for logic -->
+    <% date = desk.start_time.to_s[5..9] %>
     <% count = ((desk.end_time - desk.start_time)/3600).to_i %>
     <% start = desk.start_time.to_s[11..13].to_i %>
 
     <div class="each-desk">
       <div class="desk-head">
         <div class="desk-hour">
-          <p><%= desk.start_time.to_s[5..9] %></p>
+          <p><%= date %></p>
           <p><%= desk.start_time.to_s[11..15] %> - <%= desk.end_time.to_s[11..15] %></p>
         </div>
         <div class="per-hour-rate">
@@ -19,19 +20,23 @@
       </div>
       <div class="desk-body">
         <div class="desk-time-list">
+          <% btn_time = start %>
           <% (count + 1).times do %>
           <div class="btn btn-success btn-lg">
-            <%= start < 24 ? start : start - 24 %>
+            <%= btn_time < 24 ? btn_time : btn_time - 24 %>
           </div>
-          <% start += 1 %>
+          <% btn_time += 1 %>
           <% end %>
         </div>
         <div class="desk-avatars-container">
           <!-- show avatar for corresponding time slot -->
+          <% desk_start = start %>
           <% count.times do %>
             <div class="time-slot">
-              AVATARS GO HERE SOMEHOW
+              <%= desk_start %>
+              
             </div>
+            <% desk_start += 1 %>
           <% end %>
         </div>
       </div>
