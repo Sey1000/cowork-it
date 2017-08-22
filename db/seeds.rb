@@ -27,7 +27,7 @@ coffeeB = Coffeeshop.create(email: "awesomecafe@wagon.com", name: "Awesome Cafe"
 coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Decent Cafe", description: "some more description", address: "right next door", website: "www.decentcafe.com", password: '123456', password_confirmation: '123456')
 
 # Seeds for Desk
-t = Time.now
+t = Time.now.beginning_of_hour
 deskA = Desk.new(wifi: true, power_outlet: true, start_time: t + 2.hours, end_time: t + 5.hours, cost: 5, capacity: 4)
 deskA.coffeeshop = coffeeA
 deskA.save
