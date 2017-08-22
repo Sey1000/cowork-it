@@ -1,15 +1,27 @@
 // Specific CSS for your home-page
+.wrapper {
+  background: white;
+}
 .info {
+  padding-top: 20px;
   height: 70vh;
   text-align: center;
   margin: 0 20%;
-  h2 {
-    padding-top: 20px;
+  .heading {
     font-size: 30px;
   }
-  p{
+  .paragraph {
     padding-top: 20px;
+    margin-bottom: 50px;
   }
 
 }
+.comments {
+  height: 70vh;
+  margin: 0 5%;
+}
+.comment {
+
+}
+
 
