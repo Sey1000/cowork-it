@@ -1,5 +1,5 @@
-<div class="wrapper-grey text-center">
-  <h2>Here is the list of all coffeeshops</h2>
+<div class="wrapper-grey">
+  <h2 class="text-center">Here is the list of all coffeeshops</h2>
   <div class="main-container">
     <div class="cards">
       <div class="row">
@@ -12,8 +12,7 @@
   </div>
 </div>
 
-<div id="map" style="width: 400px; height: 600px;"></div>
-
+<div id="map" style="width: 400px; height: 600px;">
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>
     $(document).ready(function() {
@@ -31,3 +30,7 @@
     });
   <% end %>
   <% end %>
+
+</div>
+
+
