@@ -1,0 +1,23 @@
+.info-card{
+  position: relative;
+}
+
+.card-background-image {
+  background-size: cover !important;
+  background-position: center;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+
+.card-description-black-white {
+  p {
+    font-size: 25px;
+    color: black;
+    padding: 5px;
+    background: rgba(255,255,255,0.6);
+
+  }
+}
