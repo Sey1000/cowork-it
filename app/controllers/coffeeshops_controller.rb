@@ -5,5 +5,6 @@ class CoffeeshopsController < ApplicationController
 
   def show
     @coffeeshop = Coffeeshop.find(params[:id])
+    @bookings = @coffeeshop.bookings
   end
 end
