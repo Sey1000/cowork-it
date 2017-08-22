@@ -9,13 +9,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(bookings_params)
+    # if @desk.bookings == @desk.capacity
+    #   aler
     @booking.save
-    if @booking.save
-      redirect_to @booking
+    @booking = Booking.new(bookings_params)
+    @desk = Desk.find(params[:desk_id])
+      if @booking.save
+        redirect_to @booking
+      else
+        render :new
+      end
     else
-      render :new
-    end
+
   end
 
   def edit
