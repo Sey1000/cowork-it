@@ -24,7 +24,7 @@ Coffeeshops - <%= @coffeeshop.name %>
         <div class="desk-time-list">
           <% btn_time = start %>
           <% (desk.hour_count + 1).times do %>
-          <div class="btn btn-success btn-lg time-select-btn" data-time="<%= desk.start_time %>" data-date="<%= desk.str_date %>">
+          <div class="btn btn-success btn-lg time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-time="<%= desk.start_time %>" data-date="<%= desk.str_date %>">
             <%= btn_time %>
           </div>
           <% btn_time += 1 %>
