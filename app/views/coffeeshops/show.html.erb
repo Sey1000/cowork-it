@@ -1,12 +1,64 @@
-<h1>These are available desks in <%= @coffeeshop.name %></h1>
-
-<ol>
-<% @coffeeshop.desks.each do |ds| %>
-  <%= link_to coffeeshop_desk_path(@coffeeshop, ds) do %>
-    <li>
-      <%= ds.start_time.to_s[5..15] %> - <%= ds.end_time.to_s[11..15] %>
-    </li>
-  <% end %>
-  <br>
+<%= content_for(:title) do %>
+Coffeeshops - <%= @coffeeshop.name %>
 <% end %>
-</ol>
+
+<%= render 'shared/coffeeshop_banner' %>
+
+<div class="row">
+  <div class="col-xs-9 desks-container">
+    <% @coffeeshop.desks.each do |desk| %>
+    <!-- setting some local variables for logic -->
+    <% start = desk.start_time.hour %>
+    <% end_var = desk.end_time.hour %>
+    <div class="each-desk">
+      <div class="desk-head">
+        <div class="desk-hour">
+          <p><%= desk.str_date %></p>
+          <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
+        </div>
+        <div class="per-hour-rate">
+          <%= desk.cost %>€ / hour
+        </div>
+      </div>
+      <div class="desk-body">
+        <div class="desk-time-list">
+          <% btn_time = start %>
+          <% (desk.hour_count + 1).times do %>
+          <div class="btn btn-success btn-lg">
+            <%= btn_time %>
+          </div>
+          <% btn_time += 1 %>
+          <% end %>
+        </div>
+        <div class="desk-avatars-container">
+          <!-- show avatar for corresponding time slot -->
+          <% desk_start = start %>
+          <% desk.hour_count.times do %>
+          <div class="time-slot">
+            <% desk.bookings.each do |book| %>
+            <% correct_start = desk_start >= book.start_time.hour %>
+            <% correct_end = desk_start + 1 <= book.end_time.hour %>
+            <% if correct_start && correct_end %>
+            <%= book.user.first_name %> <%= book.user.last_name %> |
+            <% end %>
+            <% end %>
+          </div>
+          <% desk_start += 1 %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-xs-3 summary-right">
+    <div class="summary-head">
+      SUMMARY
+    </div>
+    <div class="summary-body">
+      WHICH COFFEESHOP <br><br>
+      WHAT DATE <br><br>
+      FROM WHEN TO WHEN
+    </div>
+    <div class="btn btn-primary">Reserve</div>
+  </div>
+</div>

@@ -1,9 +1,36 @@
-<h1>Here is the list of all coffeeshops</h1>
+<div class="wrapper-grey">
+  <h2 class="text-center">Here is the list of all coffeeshops</h2>
+  <div class="main-container">
+    <div class="cards">
+      <div class="row">
+        <% @coffeeshops.each do |cs| %>
+          <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour } %>
+        <% end %>
+      </div>
+    </div>
+    <div id="map">GOOGLE MAP</div>
+  </div>
+</div>
 
-<ul>
-<% @coffeeshops.each do |cs| %>
-  <li>
-  <%= link_to cs.name, coffeeshop_path(cs) %>
-  </li>
-<% end %>
-</ul>
+<div id="map" style="width: 400px; height: 600px;">
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+  <% end %>
+
+</div>
+
+
