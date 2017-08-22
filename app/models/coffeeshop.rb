@@ -5,6 +5,8 @@ class Coffeeshop < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :desks
   has_many :bookings, through: :desks
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def average_price_per_hour
     desk_prices = []
@@ -13,4 +15,5 @@ class Coffeeshop < ApplicationRecord
     end
     return desk_prices.reduce(:+) / desk_prices.length
   end
+  
 end

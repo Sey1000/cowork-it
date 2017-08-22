@@ -1,37 +1,52 @@
+<%= content_for(:title) do %>
+  Coffeeshops - <%= @coffeeshop.name %>
+<% end %>
+
 <%= render 'shared/coffeeshop_banner' %>
 
 <div class="row">
   <div class="col-xs-9 desks-container">
     <% @coffeeshop.desks.each do |desk| %>
     <!-- setting some local variables for logic -->
+    <% date = desk.start_time.strftime("%m-%d") %>
     <% count = ((desk.end_time - desk.start_time)/3600).to_i %>
-    <% start = desk.start_time.to_s[11..13].to_i %>
+    <% start = desk.start_time.hour %>
+    <% end_var = desk.end_time.hour %>
 
     <div class="each-desk">
       <div class="desk-head">
         <div class="desk-hour">
-          <p><%= desk.start_time.to_s[5..9] %></p>
-          <p><%= desk.start_time.to_s[11..15] %> - <%= desk.end_time.to_s[11..15] %></p>
+          <p><%= date %> <%= desk.id %></p>
+          <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
         </div>
         <div class="per-hour-rate">
-          <%= desk.cost %>€ / hr
+          <%= desk.cost %>€ / hour
         </div>
       </div>
       <div class="desk-body">
         <div class="desk-time-list">
+          <% btn_time = start %>
           <% (count + 1).times do %>
           <div class="btn btn-success btn-lg">
-            <%= start < 24 ? start : start - 24 %>
+            <%= btn_time %>
           </div>
-          <% start += 1 %>
+          <% btn_time += 1 %>
           <% end %>
         </div>
         <div class="desk-avatars-container">
           <!-- show avatar for corresponding time slot -->
+          <% desk_start = start %>
           <% count.times do %>
             <div class="time-slot">
-              AVATARS GO HERE SOMEHOW
+              <% desk.bookings.each do |book| %>
+                <% correct_start = desk_start >= book.start_time.hour %>
+                <% correct_end = desk_start + 1 <= book.end_time.hour %>
+                <% if correct_start && correct_end %>
+                  <%= book.user.first_name %> <%= book.user.last_name %> |
+                <% end %>
+              <% end %>
             </div>
+            <% desk_start += 1 %>
           <% end %>
         </div>
       </div>
