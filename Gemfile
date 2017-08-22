@@ -20,6 +20,9 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+# Authentication with Facebook
+gem 'omniauth-facebook'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
