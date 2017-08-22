@@ -10,7 +10,7 @@ Coffeeshops - <%= @coffeeshop.name %>
     <!-- setting some local variables for logic -->
     <% start = desk.start_time.hour %>
     <% end_var = desk.end_time.hour %>
-    <div class="each-desk">
+    <div class="each-desk" data-id=<%= desk.id %>>
       <div class="desk-head">
         <div class="desk-hour">
           <p><%= desk.str_date %></p>
@@ -24,7 +24,7 @@ Coffeeshops - <%= @coffeeshop.name %>
         <div class="desk-time-list">
           <% btn_time = start %>
           <% (desk.hour_count + 1).times do %>
-          <div class="btn btn-success btn-lg">
+          <div class="btn btn-success btn-lg time-select-btn" data-id=<%= btn_time %>>
             <%= btn_time %>
           </div>
           <% btn_time += 1 %>
