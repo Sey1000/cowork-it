@@ -22,9 +22,9 @@ userD = User.create(email: 'woof@wagon.com', password: '123456', password_confir
 userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
 
 #Seeds for Coffeeshop
-coffeeA = Coffeeshop.create(email: "nicecafe@wagon.com", name: "Nice Cafe", description: "some description", address: "far from here", website: "www.nicecafe.com", password: '123456', password_confirmation: '123456')
-coffeeB = Coffeeshop.create(email: "awesomecafe@wagon.com", name: "Awesome Cafe", description: "another description", address: "kinda closeby", website: "www.awesomecafe.com", password: '123456', password_confirmation: '123456')
-coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Decent Cafe", description: "some more description", address: "right next door", website: "www.decentcafe.com", password: '123456', password_confirmation: '123456')
+coffeeA = Coffeeshop.create(email: "nicecafe@wagon.com", name: "westberlin bar&shop", description: "some description", address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
+coffeeB = Coffeeshop.create(email: "awesomecafe@wagon.com", name: "#HASHTAG Coffee Shop", description: "another description", address: "Krausenstraße 41, 10117 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
+coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Refinery High End Coffee", description: "some more description", address: "Albrechtstraße 11B, 10117 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456')
 
 # Seeds for Desk
 t = Time.now.beginning_of_day
