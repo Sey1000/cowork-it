@@ -5,4 +5,6 @@ class Coffeeshop < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :desks
   has_many :bookings, through: :desks
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
