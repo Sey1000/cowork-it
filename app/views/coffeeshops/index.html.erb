@@ -9,10 +9,10 @@
 </ul>
 
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+<div id="map" style="width: 400px; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
-  <script type="text/javascript">
+<%= javascript_tag do %>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -26,4 +26,5 @@
         }
       });
     });
+  <% end %>
   <% end %>
