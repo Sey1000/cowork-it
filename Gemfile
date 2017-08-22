@@ -23,6 +23,9 @@ end
 # Authentication with Facebook
 gem 'omniauth-facebook'
 
+# Datepicker
+gem 'bootstrap-datepicker-rails'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
