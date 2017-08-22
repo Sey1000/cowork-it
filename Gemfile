@@ -11,6 +11,9 @@ gem 'redis'
 # Authentication with devise
 gem 'devise'
 
+# Authentication with Facebook
+gem 'omniauth-facebook'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
