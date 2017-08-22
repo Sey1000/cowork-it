@@ -9,18 +9,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # if @desk.bookings == @desk.capacity
-    #   aler
-    @booking.save
     @booking = Booking.new(bookings_params)
-    @desk = Desk.find(params[:desk_id])
-      if @booking.save
-        redirect_to @booking
-      else
-        render :new
-      end
-    else
-
+    @booking.cost = @booking.desk.cost
+    @booking.user = current_user
+    # TODO: if / else the user is logged in or not
+    @booking.save
+    redirect_to coffeeshop_path(@booking.desk.coffeeshop)
   end
 
   def edit
@@ -41,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:desk_id, :start_time, :end_time)
   end
 end

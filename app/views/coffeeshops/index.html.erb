@@ -8,29 +8,25 @@
         <% end %>
       </div>
     </div>
-    <div id="map">GOOGLE MAP</div>
+
+    <div id="map">
+      <% content_for(:after_js) do %>
+        <script type="text/javascript">
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+        </script>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<div id="map" style="width: 400px; height: 600px;">
-<% content_for(:after_js) do %>
-<%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-  <% end %>
-
-</div>
-
-

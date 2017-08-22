@@ -1,0 +1,15 @@
+<h2><%= coffeeshop.name %></h2>
+<h3><%= coffeeshop.address %></h3>
+<p><%= coffeeshop.website %></p>
+<% availability = 0 %>
+<% coffeeshop.desks.each do |desk| %>
+
+  <% if desk.bookings.length < desk.capacity %>
+    <% availability += desk.capacity - desk.bookings.length %>
+  <% end %>
+<% end %>
+<p><%= availability %> spots left!</p>
+
+
+<%= link_to "Check it out!", coffeeshop, class: "btn btn-primary" %>
+
