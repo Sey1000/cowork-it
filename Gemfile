@@ -10,6 +10,7 @@ gem 'redis'
 
 # Authentication with devise
 gem 'devise'
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
