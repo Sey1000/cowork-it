@@ -10,14 +10,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(bookings_params)
-    @desk = Desk.find(params[:desk_id])
-      if @booking.save
-        redirect_to @booking
-      else
-        render :new
-      end
-    else
-
+    @booking.set_start_time(@booking.desk)
+    @booking.user = current_user
+    @booking.save
+    redirect_to coffeeshop_path(@booking.desk.coffeeshop)
   end
 
   def edit
@@ -38,6 +34,6 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:desk_id, :time_int)
   end
 end

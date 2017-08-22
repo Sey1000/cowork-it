@@ -8,7 +8,11 @@
 
 $(document).ready(function() {
   $('.time-select-btn').click(function() {
-    console.log($(this).data('id'));
-    console.log($(this).parents().eq(2).data('id'));
+    var time_int = $(this).data('id');
+    var desk_id = $(this).parents().eq(2).data('id');
+    $('#hidden-coffeeshop-name').val(desk_id);
+    $('#hidden-start-time').val(time_int);
+    console.log(time_int);
+    console.log(desk_id);
   });
 });
