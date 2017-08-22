@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(bookings_params)
-    @booking.set_start_time(@booking.desk)
+    @booking.cost = @booking.desk.cost
     @booking.user = current_user
     @booking.save
     redirect_to coffeeshop_path(@booking.desk.coffeeshop)
@@ -34,6 +34,6 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:desk_id, :start_time)
+    params.require(:booking).permit(:desk_id, :start_time, :end_time)
   end
 end
