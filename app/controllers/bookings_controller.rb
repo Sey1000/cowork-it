@@ -9,9 +9,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # if @desk.bookings == @desk.capacity
-    #   aler
-    @booking.save
     @booking = Booking.new(bookings_params)
     @desk = Desk.find(params[:desk_id])
       if @booking.save

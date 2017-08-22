@@ -12,5 +12,7 @@ class CoffeeshopsController < ApplicationController
   def show
     @coffeeshop = Coffeeshop.find(params[:id])
     @bookings = @coffeeshop.bookings
+    # for simple form
+    @booking = Booking.new
   end
 end
