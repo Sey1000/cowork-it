@@ -19,9 +19,9 @@
     <% end_var = desk.end_time.hour %>
     <div class="each-desk" data-id="<%= desk.id %>">
       <div class="desk-head">
-        <h3>Liv</h3>
+        <p>Desk "Liv"</p>
       </div>
-      <div id="desk-content" style="display:block;">
+      <div class="desk-content hidden">
         <div class="desk-subhead">
           <ul class="list-group list-inline">
             <li>
@@ -72,6 +72,9 @@
               <% correct_end = desk_start + 1 <= book.end_time.hour %>
               <% if correct_start && correct_end %>
               <%= book.user.first_name %> <%= book.user.last_name %> |
+              <% avatar_url = book.user.facebook_picture_url || "http://placehold.it/30x30" %>
+              <%= image_tag avatar_url %>
+
               <% end %>
               <% end %>
             </div>
@@ -104,7 +107,7 @@
         <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
         <%= f.input :start_time, as: :hidden, input_html: { id: "hidden-start-time" } %>
         <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
-        <%= f.submit "Reserve", class: "btn btn-primary" %>
+        <%= f.submit "Reserve", class: "btn btn-darkred" %>
       <% end %>
     </div>
   </div>
