@@ -1,6 +1,9 @@
 class CoffeeshopsController < ApplicationController
   def index
     @coffeeshops = Coffeeshop.where.not(latitude: nil, longitude: nil)
+    if params[:address]
+    @coffeeshops = Coffeeshop.near(params[:address], 5) #if nil?
+    end
 
     @hash = Gmaps4rails.build_markers(@coffeeshops) do |coffeeshop, marker|
       marker.lat coffeeshop.latitude

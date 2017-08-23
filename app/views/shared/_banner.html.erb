@@ -2,6 +2,9 @@
   <div class="banner-content">
     <h1>CoworkIT Berlin</h1>
     <p>Work at the best place for YOU!</p>
-    <%= link_to "Book your Desk now!", coffeeshops_path, class: "btn-red"%>
+    <div class="form">
+    <%= render 'shared/form' %>
+    </div>
+    <%#= link_to "Book your Desk now!", coffeeshops_path, class: "btn-red"%>
   </div>
 </div>
