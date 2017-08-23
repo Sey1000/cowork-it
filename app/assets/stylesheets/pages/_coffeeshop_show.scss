@@ -2,14 +2,20 @@ h3 {
   font-size: 20px;
   color: $dark-blue;
 }
+.row {
+  background-color: white;
+}
 .desks-container {
-  border: 1px solid green;
   padding: 40px;
+  h3 {
+    padding: 8px;
+    border-bottom: 2px solid $light-gray;
+  }
 }
 
 .each-desk {
   border: 1px solid #CCCCCC;
-  border-radius: 5px;
+  border-radius: 4px;
   position: relative;
   margin-bottom: 30px;
   background-color: white;
@@ -19,6 +25,10 @@ h3 {
     height: 40px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid $light-gray;
+    p {
+      margin: 0;
+    }
   }
 
   .desk-subhead {
@@ -77,23 +87,39 @@ h3 {
   }
 }
 
+.col-xs-3.summary-right {
+    padding: 0;
+}
 .summary-right {
+  .btn-darkred {
+    width: 200px;
+    color: white;
+    background-color: $dark-red;
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
   position: fixed;
   right: 0;
-  top: 50vh;
-  border: 1px solid blue;
+  top: 30vh;
+  border: 1px solid $gray;
+  border-radius: 3px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgba(250,250,250,0.6);
 
   .summary-head {
-    border: 1px solid red;
+    height: 40px;
+    border: 1px solid $dark-blue;
     margin-bottom: 20px;
+    width: 100%;
+    background-color: $dark-blue;
+    color: white,
   }
 
   .summary-body {
-    border: 1px solid black;
     margin-bottom: 20px;
   }
 }
