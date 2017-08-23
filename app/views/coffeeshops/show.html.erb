@@ -20,6 +20,7 @@
     <div class="each-desk" data-id="<%= desk.id %>">
       <div class="desk-head">
         <p>Desk "Liv"</p>
+        <i class="fa fa-caret-down"></i>
       </div>
       <div class="desk-content hidden">
         <div class="desk-subhead">
@@ -71,9 +72,10 @@
               <% correct_start = desk_start >= book.start_time.hour %>
               <% correct_end = desk_start + 1 <= book.end_time.hour %>
               <% if correct_start && correct_end %>
-              <%= book.user.first_name %> <%= book.user.last_name %> |
               <% avatar_url = book.user.facebook_picture_url || "http://placehold.it/30x30" %>
-              <%= image_tag avatar_url %>
+              <%= link_to user_path(book.user) do %>
+                <%= image_tag avatar_url, class: "avatar-xs"%>
+              <% end %>
 
               <% end %>
               <% end %>
@@ -93,15 +95,15 @@
     </div>
     <div class="summary-body">
     <div id="booking-coffeeshop-name">
-    <h4>
+    <h3>
       <%= @coffeeshop.name %>
-    </h4>
+    </h3>
     </div>
     <p id="booking-desk-date">
-      DATE
+      Choose your date
     </p>
     <p id="booking-time-range">
-      TIME
+      Choose your time
     </p>
       <%= simple_form_for(@booking) do |f| %>
         <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
