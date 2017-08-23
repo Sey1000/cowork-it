@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     if current_user
       @booking.user = current_user
-      @booking.desk
       @booking.cost = @booking.desk.cost
       @booking.save
       redirect_to coffeeshop_path(@booking.desk.coffeeshop)
