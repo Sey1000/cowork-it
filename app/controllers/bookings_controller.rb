@@ -10,14 +10,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(bookings_params)
-    @booking.cost = @booking.desk.cost
-    unless current_user
+    if current_user
+      @booking.user = current_user
+      @booking.desk
+      @booking.cost = @booking.desk.cost
+      @booking.save
+      redirect_to coffeeshop_path(@booking.desk.coffeeshop)
+    else
       redirect_to new_user_session_path
     end
-    # TODO: if / else the user is logged in or not
-    @booking.user = current_user
-    @booking.save
-    redirect_to coffeeshop_path(@booking.desk.coffeeshop)
   end
 
   def edit
