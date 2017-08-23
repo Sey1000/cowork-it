@@ -59,6 +59,30 @@ deskE = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_
 deskE.coffeeshop = coffeeC
 deskE.save
 
+deskF = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskF.coffeeshop = coffeeD
+deskF.save
+
+deskG = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskG.coffeeshop = coffeeE
+deskG.save
+
+deskH = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskH.coffeeshop = coffeeF
+deskH.save
+
+deskI = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskI.coffeeshop = coffeeG
+deskI.save
+
+deskJ = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskJ.coffeeshop = coffeeH
+deskJ.save
+
+deskK = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskK.coffeeshop = coffeeI
+deskK.save
+
 # Seeds for Booking
 bookA = Booking.new(start_time: t + 9.hours, end_time: t + 10.hours)
 bookA.user = userA
