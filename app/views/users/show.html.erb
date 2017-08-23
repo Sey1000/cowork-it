@@ -1,6 +1,6 @@
 <div class="user-container">
   <div class="profile-pic">
-      <% avatar_url = @user.facebook_picture_url || "http://placehold.it/100x100" %>
+      <% avatar_url = @user.facebook_picture_url || @user.photo_url %>
       <%= image_tag avatar_url, class: "avatar-lg" %>
   </div>
   <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
