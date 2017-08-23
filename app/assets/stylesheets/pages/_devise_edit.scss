@@ -1,8 +1,18 @@
 .title-flex-div {
   display: flex;
   align-items: center;
+  margin: 20px 0;
 
   h2 {
     margin: 0;
+    flex-grow: 1;
+  }
+
+  .fa {
+    color: $dark-red;
+
+    &:hover {
+      color: #5C293C;
+    }
   }
 }
