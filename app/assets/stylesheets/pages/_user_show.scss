@@ -4,17 +4,32 @@
   flex-direction: column;
   height: 700px;
 }
+
+.user-names {
+}
+
 .avatar-lg {
   margin-top: 20px;
 }
-.grid {
+
+.profile-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   height: 200px;
-  width: 600px;
+  width: 700px;
   padding: 30px;
 }
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  width: 700px;
+  padding: 30px; 
+}
+
 .profile-header {
+  font-family: $headers-font;
+  font-weight: bold;
   grid-row: 1 / span 1;
   grid-column: 1/ span 3;
   border-bottom: 1px solid rgb(220,220,220);
@@ -24,31 +39,37 @@
 }
 
 .first_name-header {
+  opacity: 0.8;
   grid-row: 2 / span 1;
   grid-column: 1/ span 1;
   margin-top: 10px;
 }
 
 .first_name {
+  opacity: 0.6;
   grid-row: 2 / span 1;
   grid-column: 2/ span 2;
   margin-top: 10px;
 }
 .last_name-header {
+  opacity: 0.8;
   grid-row: 3 / span 1;
   grid-column: 1/ span 1;
 }
 
 .last_name {
+  opacity: 0.6;
   grid-row: 3 / span 1;
   grid-column: 2/ span 2;
 }
 .email-header {
+  opacity: 0.8;
   grid-row: 4 / span 1;
   grid-column: 1/ span 1;
 }
 
 .email {
+  opacity: 0.6;
   grid-row: 4 / span 1;
   grid-column: 2/ span 2;
 }
@@ -58,39 +79,48 @@
   margin-bottom: 20px;
 }
 .bookings-header {
+  font-family: $headers-font;
+  font-weight: bold;
   grid-row: 6 / span 1;
-  grid-column: 1/ span 3;
+  grid-column: 1/ span 4;
   border-bottom: 1px solid rgb(220,220,220);
   p {
     margin-bottom: 3px;
   }
 }
 .date-header {
+  opacity: 0.8;
   grid-row: 7 / span 1;
   grid-column: 1/ span 1;
   margin-top: 10px;
 }
 .time-header {
+  opacity: 0.8;
   grid-row: 7 / span 1;
   grid-column: 2/ span 1;
   margin-top: 10px;
 }
 .coffeeshop-header {
+  opacity: 0.8;
   grid-row: 7 / span 1;
-  grid-column: 3/ span 1;
+  grid-column: 4/ span 1;
   margin-top: 10px;
 }
 .date {
+  opacity: 0.6;
   grid-row: 8 / span 1;
   grid-column: 1/ span 1;
 }
 
 .time {
+  opacity: 0.6;
   grid-row: 8 / span 1;
   grid-column: 2/ span 1;
 }
 
 .coffeeshop-name {
+  opacity: 0.6;
   grid-row: 8 / span 1;
-  grid-column: 3/ span 1;
+  grid-column: 4/ span 1;
+  overflow: visible;
 }
