@@ -5,6 +5,10 @@
   border-radius: 5px;
   position: absolute;
   right: 95px;
+  &:hover{
+    background-color: $dark-gray;
+    color: white;
+  }
 }
 
 .btn-red {
@@ -14,6 +18,9 @@
   border-radius: 5px;
   right: 95px;
   border: none;
+  &:hover{
+    background-color: #ba2138;
+  }
 }
 
 .btn-facebook {
