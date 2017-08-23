@@ -7,6 +7,7 @@ class CoffeeshopsController < ApplicationController
       marker.lng coffeeshop.longitude
       marker.infowindow render_to_string(partial: "/coffeeshops/map_box", locals: { coffeeshop: coffeeshop })
     end
+    @user = current_user
   end
 
   def show
