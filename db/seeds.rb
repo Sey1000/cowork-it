@@ -15,11 +15,11 @@ Coffeeshop.destroy_all
 first_names = %w[John Sarah Kris]
 last_names = %w[Brown Miller Green Shaw]
 
-userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
-userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
-userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
-userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
-userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg")
+userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg")
+userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg")
+userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg")
+userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.eleanorfrajka.com/images/profile_pic_square.jpg")
 
 #Seeds for Coffeeshop
 coffeeA = Coffeeshop.create(email: "nicecafe@wagon.com", name: "westberlin bar&shop", description: "some description", address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
