@@ -14,9 +14,9 @@ class Coffeeshop < ApplicationRecord
       self.desks.each do |desk|
         desk_prices << desk.cost
       end
-      return desk_prices.reduce(:+) / desk_prices.length
+      return "#{desk_prices.reduce(:+) / desk_prices.length} €/h"
     end
-    return "0"
+    return "No desk available"
   end
 
 end
