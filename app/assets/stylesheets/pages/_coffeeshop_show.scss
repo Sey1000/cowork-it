@@ -47,7 +47,7 @@ p {
     }
     p {
       font-size: 15px;
-      margin-bottom: 5px;
+      margin-bottom: 0px;
     }
     .list-inline {
       margin-bottom: 0;
@@ -67,6 +67,7 @@ p {
       flex-direction: column;
       justify-content: space-around;
       border-right: 1px solid gray;
+      margin-bottom: 5px;
       .btn-white {
         margin-left: 5px;
         color: $dark-blue;
@@ -80,17 +81,17 @@ p {
     }
 
     .desk-avatars-container {
-      padding: 5px 0px;
+      padding: 15px 0px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-
+      margin-right: 5px;
       .time-slot {
         height: 38px;
         margin-right: 5px;
         background-color: $light-gray;
-        margin: 1px 0px;
+        margin: 3px 0px;
         flex-grow: 1;
         display: flex;
         align-items: center;
