@@ -44,8 +44,9 @@
 }
 
 .summary-right {
-  // position: fixed;
-  // right: 0;
+  position: fixed;
+  right: 0;
+  top: 50vh;
   border: 1px solid blue;
   text-align: center;
   display: flex;
