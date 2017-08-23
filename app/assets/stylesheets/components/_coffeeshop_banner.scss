@@ -1,4 +1,9 @@
 .coffeeshop-banner {
-  border: 1px solid red;
   height: 200px;
+  background-size: cover !important;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

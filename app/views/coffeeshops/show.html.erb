@@ -6,48 +6,81 @@
 
 <div class="row">
   <div class="col-xs-9 desks-container">
+    <div class="coffeeshop-description">
+      <h3>About Us</h3>
+      <p>
+        Der neue Berlin-Mitte-Hotspot für heißen Kaffee, coole Getränke sowie eine herzhafte Berliner Stulle. Entdecke Berliner Spezialitäten einmal neu - mit unserer Backkartoffel im Currywurst- oder Chili- Style und lokalen Drinks. Außerdem unterstützen wir unsere regionalen Lieferanten. Schaut doch mal rein - unser Mittagsmenü wechselt täglich.
+      </p>
+    </div>
+    <h3>Our Desks</h3>
     <% @coffeeshop.desks.each do |desk| %>
     <!-- setting some local variables for logic -->
     <% start = desk.start_time.hour %>
     <% end_var = desk.end_time.hour %>
     <div class="each-desk" data-id="<%= desk.id %>">
       <div class="desk-head">
-        <div class="desk-hour">
-          <p><%= desk.str_date %></p>
-          <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
+        <h3>Liv</h3>
+      </div>
+      <div id="desk-content" style="display:block;">
+        <div class="desk-subhead">
+          <ul class="list-group list-inline">
+            <li>
+              <i class="fa fa-calendar-o "></i>
+              <div class="desk-hour">
+                <p><%= desk.str_date %></p>
+                <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-eur"></i>
+              <div class="per-hour-rate">
+                <p> <%= desk.cost %>€ / hour </p>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-wifi"></i>
+              <p>Yes</p>
+            </li>
+            <li>
+              <i class="fa fa-plug"></i>
+              <p>Yes</p>
+            </li>
+            <li>
+              <i class="fa fa-users"></i>
+              <p>max. 10</p>
+            </li>
+          </ul>
         </div>
-        <div class="per-hour-rate">
-          <%= desk.cost %>€ / hour
+        <div class="desk-body">
+          <div class="desk-time-list">
+            <% btn_time = start %>
+            <% (desk.hour_count + 1).times do %>
+            <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
+            <div class="btn btn-white btn-md time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
+              <%= btn_time %>
+            </div>
+            <% btn_time += 1 %>
+            <% end %>
+          </div>
+          <div class="desk-avatars-container">
+            <!-- show avatar for corresponding time slot -->
+            <% desk_start = start %>
+            <% desk.hour_count.times do %>
+            <div class="time-slot">
+              <% desk.bookings.each do |book| %>
+              <% correct_start = desk_start >= book.start_time.hour %>
+              <% correct_end = desk_start + 1 <= book.end_time.hour %>
+              <% if correct_start && correct_end %>
+              <%= book.user.first_name %> <%= book.user.last_name %> |
+              <% end %>
+              <% end %>
+            </div>
+            <% desk_start += 1 %>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="desk-body">
-        <div class="desk-time-list">
-          <% btn_time = start %>
-          <% (desk.hour_count + 1).times do %>
-          <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-          <div class="btn btn-success btn-lg time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
-            <%= btn_time %>
-          </div>
-          <% btn_time += 1 %>
-          <% end %>
-        </div>
-        <div class="desk-avatars-container">
-          <!-- show avatar for corresponding time slot -->
-          <% desk_start = start %>
-          <% desk.hour_count.times do %>
-          <div class="time-slot">
-            <% desk.bookings.each do |book| %>
-            <% correct_start = desk_start >= book.start_time.hour %>
-            <% correct_end = desk_start + 1 <= book.end_time.hour %>
-            <% if correct_start && correct_end %>
-            <%= book.user.first_name %> <%= book.user.last_name %> |
-            <% end %>
-            <% end %>
-          </div>
-          <% desk_start += 1 %>
-          <% end %>
-        </div>
-      </div>
+
     </div>
     <% end %>
   </div>
