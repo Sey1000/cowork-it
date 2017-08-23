@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
       @booking.user = current_user
       @booking.cost = @booking.desk.cost
       @booking.save
-      redirect_to coffeeshop_path(@booking.desk.coffeeshop)
+      redirect_to user_path(current_user)
     else
       redirect_to new_user_session_path
     end
