@@ -38,7 +38,7 @@ coffeeM = Coffeeshop.create(email: "whycafe@wagon.com", name: "Cafe Lucre", desc
 coffeeN = Coffeeshop.create(email: "pleasecafe@wagon.com", name: "Volcano's Lava Rock Cafe", description: "another description", address: "Volcano, HI, United States", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
 
 # Seeds for Desk
-t = Time.now.beginning_of_day
+t = Time.now.beginning_of_day + 1.day
 deskA = Desk.new(wifi: true, power_outlet: true, start_time: t + 9.hours, end_time: t +12.hours, cost: 5, capacity: 4)
 deskA.coffeeshop = coffeeA
 deskA.save
