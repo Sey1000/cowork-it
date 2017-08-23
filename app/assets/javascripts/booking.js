@@ -10,6 +10,8 @@ $(document).ready(function() {
     var start_time_obj = $(this).data('start-time')
     var end_time_obj = $(this).data('end-time')
 
+    $(this).addClass('time-selected');
+
     $('#hidden-coffeeshop-name').val(desk_id);
     $('#hidden-start-time').val(start_time_obj);
     $('#hidden-end-time').val(end_time_obj);
