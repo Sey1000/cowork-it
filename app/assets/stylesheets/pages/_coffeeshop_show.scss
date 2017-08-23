@@ -73,7 +73,7 @@ p {
         border-right-color: $dark-gray;
         border-bottom-color: $dark-gray;
         &:hover {
-        background-color: $light-gray;
+          background-color: $light-gray;
         }
       }
     }
@@ -100,15 +100,15 @@ p {
 }
 
 .col-xs-3.summary-right {
-    padding: 0;
+  padding: 0;
 }
 .summary-right {
   .btn-darkred {
     width: 200px;
     color: white;
     background-color: $dark-red;
-    &:hover {
-      background-color: $light-gray;
+    &:hover{
+      background-color: #ba2138;
     }
   }
   position: fixed;
