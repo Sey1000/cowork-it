@@ -1,19 +1,42 @@
+h3 {
+  font-size: 20px;
+  color: $dark-blue;
+}
 .desks-container {
   border: 1px solid green;
   padding: 40px;
 }
 
 .each-desk {
-  border: 1px solid orange;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
   position: relative;
   margin-bottom: 30px;
-
+  background-color: white;
   .desk-head {
     background: #CCCCCC;
     padding: 10px 30px;
+    height: 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  .desk-subhead {
+    padding: 16px 80px;
+    .list-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    .list-inline {
+      margin-bottom: 0;
+      li {
+        text-align: center;
+      }
+    }
   }
 
   .desk-body {
@@ -26,17 +49,28 @@
       flex-direction: column;
       justify-content: space-around;
       border-right: 1px solid gray;
+      .btn-white {
+        margin-left: 5px;
+        color: $dark-blue;
+        background-color: white;
+        border-color: $dark-blue;
+        &:hover {
+        background-color: $light-gray;
+        }
+      }
     }
 
     .desk-avatars-container {
-      padding: 12px 0;
+      padding: 10px 0px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
 
       .time-slot {
-        border: 1px solid black;
+        margin-right: 5px;
+        background-color: $light-gray;
+        margin: 3px 0px;
         flex-grow: 1;
       }
     }
