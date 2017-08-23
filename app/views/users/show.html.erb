@@ -7,33 +7,39 @@
       <%= image_tag "http://placehold.it/100x100", class: "avatar-lg" %>
     <% end %>
   </div>
-  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-  <div class="content">
-    <div class="grid">
+  <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
+  <div class="profile">
+    <div class="profile-grid">
       <div class="profile-header">
         <p>Profile Data</p>
       </div>
       <div class="first_name-header">
         <p>First Name</p>
       </div>
-      <div class="first_name text-center">
+      <div class="first_name">
         <p><%= current_user.first_name %></p>
       </div>
       <div class="last_name-header">
         <p>Last Name</p>
       </div>
-      <div class="last_name text-center">
+      <div class="last_name">
         <%= current_user.last_name %>
       </div>
       <div class="email-header">
         <p>E-Mail</p>
       </div>
-      <div class="email text-center">
+      <div class="email">
         <%= current_user.email %>
       </div>
-      <div class="change-password text-center">
-        <%= link_to "Change your password", edit_user_password_path %>
-      </div>
+      <% unless current_user.provider %>
+        <div class="change-password text-center">
+          <%= link_to "Change your password", edit_user_registration_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="booking">
+    <div class="booking-grid">
       <div class="bookings-header">
         <p>Your Bookings</p>
       </div>
@@ -41,21 +47,35 @@
         <p>Date</p>
       </div>
       <div class="date">
-        <p>01.08.2017</p>
+        <p>
+          <% @bookings.each do |book| %>
+            <%= book.start_time.strftime("%d.%m.%Y") %>
+            <br>
+          <% end %>
+        </p>
       </div>
-      <div class="time-header">
+      <div class="time-header text-center">
         <p>Time</p>
       </div>
-      <div class="time">
-        <p>17:00 - 18:00</p>
+      <div class="time text-center">
+        <p>
+          <% @bookings.each do |book| %>
+            <%= book.start_time.hour %> - <%= book.end_time.hour %>
+            <br>
+          <% end %>
+        </p>
       </div>
       <div class="coffeeshop-header">
         <p>Coffeeshop</p>
       </div>
       <div class="coffeeshop-name">
-        <p>Einstein Cafe</p>
+        <p>
+          <% @bookings.each do |book| %>
+            <%= book.desk.coffeeshop.name %>
+            <br>
+          <% end %>
+        </p>
       </div>
-
     </div>
   </div>
 </div>
