@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @coffeeshop = Coffeeshop.new
+    @coffeeshops = Coffeeshop.where.not(latitude: nil, longitude: nil)[0..2]
   end
 end
