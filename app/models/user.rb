@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   has_many :bookings, dependent: :destroy
-  before_create :set_photo
-  has_attachment :photo
+  has_attachment :avatar
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -26,13 +25,5 @@ class User < ApplicationRecord
     end
 
     return user
-  end
-
-  private
-
-  def set_photo
-    if photo_url.nil?
-      self.photo_url = "https://vignette1.wikia.nocookie.net/cutemariobro/images/5/59/Person-placeholder.jpg/revision/latest?cb=20170131092134"
-    end
   end
 end

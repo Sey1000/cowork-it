@@ -1,3 +1,6 @@
 $(document).ready(function() {
-  $('.attachinary-input').attachinary();
+  $('.attachinary-input').attachinary(function(){
+    $(".profile-pic").
+
+  });
 });
