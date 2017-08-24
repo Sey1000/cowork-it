@@ -1,24 +1,24 @@
 <div class="container">
-<div class="row">
-<h1>List of all users</h1>
-</div>
-<div class="user-list">
-
-  <% @users.each do |user| %>
-  <div class="row" id="user-rows">
-  <div class="col-xs-6 col-sm-3">
-    <% avatar_url = user.facebook_picture_url || current_user.photo_url %>
-    <%= image_tag avatar_url, class: "class-photos" %>
+  <div class="row">
+    <h1>List of all users</h1>
   </div>
-  <div class="row" id="user-info">
-  <div class="col-xs-6 col-sm-4">
-    <%= link_to user_path(user) do %>
-    <%= user.first_name %>
-    <%= user.last_name %>
+  <div class="user-list">
+
+    <% @users.each do |user| %>
+    <div class="row" id="user-rows">
+      <div class="col-xs-6 col-sm-3">
+        <% avatar_url = user.facebook_picture_url || current_user.photo_url %>
+        <%= image_tag avatar_url, class: "class-photos" %>
+      </div>
+      <div class="row" id="user-info">
+        <div class="col-xs-6 col-sm-4">
+          <%= link_to user_path(user) do %>
+          <%= user.first_name %>
+          <%= user.last_name %>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
     </div>
-    <% end %>
-  <% end %>
-</div>
-</div>
-</div>
+  </div>
 </div>
