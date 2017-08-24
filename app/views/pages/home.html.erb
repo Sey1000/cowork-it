@@ -4,11 +4,11 @@
     <h2 class="heading"> Recommendations</h2>
     <p class="paragraph"> Stuck in an unproductive zone? You need other people around you to be productive? Then book a desk at your nearby coffeeshop to work with inspiring people now.</p>
   </div>
-    <div class="row">
+
+    <div class="row" id="row-home">
       <% @coffeeshops.each do |cs| %>
-        <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability , capacity: cs.capacity_overall } %>
+        <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability, card_banner_url: cs.picture_url, coffeeshop_subtitle: "", capacity: cs.capacity_overall } %>
       <% end %>
     </div>
 </div>
 <%= render 'shared/comments' %>
-<%= render 'shared/offers' %>

@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20170824130333) do
     t.string   "website"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "short_description"
+    t.string   "picture_url"
     t.index ["email"], name: "index_coffeeshops_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_coffeeshops_on_reset_password_token", unique: true, using: :btree
   end
