@@ -7,4 +7,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @bookings = @user.bookings
   end
+
+  def user_params
+  params.require(:user).permit(:name, :occupation, :photo)
+  end
 end

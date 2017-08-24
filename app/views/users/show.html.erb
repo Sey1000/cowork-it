@@ -4,6 +4,9 @@
     <%= image_tag avatar_url, class: "avatar-lg" %>
   </div>
   <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
+    <%= simple_form_for [@user] do |f| %>
+    <%= f.input :photo, as: :attachinary %>
+  <% end %>
   <div class="profile">
     <div class="profile-grid">
       <div class="profile-header">
