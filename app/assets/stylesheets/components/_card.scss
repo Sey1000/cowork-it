@@ -52,8 +52,24 @@
   background: black;
   opacity: 0;
 }
-.card-link:hover {
-  opacity: 0.1;
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+.card:hover {
+  .show-card{
+    opacity: 1;
+  }
+  .card-top {
+    opacity: 0.4;
+  }
+  .card-description{
+    opacity: 0;
+  }
 }
-
+.show-card{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+ }
 
