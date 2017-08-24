@@ -72,28 +72,26 @@ p {
 
   .desk-body {
     display: flex;
-    padding: 0px 50px 25px 50px;
-    background-color: $light-gray;
-
+    padding: 10px 50px 10px 50px;
+    background-color: $very-light-gray;
     .desk-time-list {
       display: flex;
       flex-grow: 1;
       flex-direction: column;
       margin-bottom: 5px;
-
       .btn-white {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 70px;
-        margin: -1px 0;
+        margin: 0px 0;
         color: $dark-blue;
         background-color: white;
-        border-color: $medium-gray;
+        border-color: $light-gray;
         border-radius: 5px;
         &:hover {
-          background-color: $light-gray;
+          border-color: $medium-gray;
         }
 
         .desk-avatars {
@@ -106,7 +104,7 @@ p {
 
       .background-gray-button {
           // PLEASE CHANGE MY COLORS FOR BETTER DESIGN
-          background-color: black;
+          background-color: $medium-gray;
           color: white;
         }
       }
