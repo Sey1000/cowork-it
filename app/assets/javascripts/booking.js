@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('#special-booking-filter').click(function() {
         $('.time-select-btn').removeClass('background-gray-button');
         $('#booking-time-range').text("");
@@ -52,6 +51,10 @@ $(document).ready(function() {
         $('#hidden-start-time').val(start_time_obj);
         $('#hidden-end-time').val(end_time_obj);
         $('#hidden-total-cost').val(booking_cost);
+
+        if ($('#hidden-start-time').val()) {
+            $("#reserve-btn").attr("disabled", false);
+        }
 
         console.log(desk_id);
         console.log(booking_cost);
