@@ -99,7 +99,7 @@
       <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
       <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
       <%= f.input :cost, as: :hidden, input_html: {id: "hidden-total-cost"} %>
-      <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn" %>
+      <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn", disabled: "true" %>
       <% end %>
     </div>
   </div>
