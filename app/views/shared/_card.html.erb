@@ -5,7 +5,14 @@
         <h2><%= coffeshop_name %></h2>
         <p>Very hipster, only cool people can join</p>
       </div>
-
+      <div class="show-card">
+        <% if wifi %>
+          <i class="fa fa-wifi"></i>
+        <% end %>
+        <% if power_outlet %>
+          <i class="fa fa-plug"></i>
+        <% end %>
+      </div>
     </div>
     <div class="card-bottom">
       <div class="card-user">
