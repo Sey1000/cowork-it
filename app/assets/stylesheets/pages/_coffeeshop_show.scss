@@ -21,41 +21,45 @@ p {
 // }
 
 .each-desk {
-  border: 1px solid #CCCCCC;
+  border: 1px solid $dark-blue;
   border-radius: 4px;
   position: relative;
   margin-bottom: 30px;
   background-color: white;
   .desk-head {
-    background: #CCCCCC;
+    background: $dark-blue;
+    color: white;
     padding: 10px 30px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid $light-gray;
-    
+    border-bottom: 1px solid $dark-blue;
     p {
       margin: 0;
     }
-    
+
     .fa {
       font-size: 1.3em;
     }
 
     &:hover {
-      background: #B3B3B3;
+      background: $medium-blue;
     }
   }
 
   .desk-subhead {
     padding: 16px 80px;
+    .fa {
+      font-size: 1.2em;
+      margin-bottom: 6px;
+    }
     .list-group {
       display: flex;
       justify-content: space-between;
     }
     p {
-      font-size: 15px;
+      font-size: 12px;
       margin-bottom: 0px;
     }
     .list-inline {
@@ -69,6 +73,7 @@ p {
   .desk-body {
     display: flex;
     padding: 0px 50px 25px 50px;
+    background-color: $light-gray;
 
     .desk-time-list {
       display: flex;
@@ -81,11 +86,12 @@ p {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80px;
+        height: 70px;
         margin: -1px 0;
         color: $dark-blue;
         background-color: white;
-        border-color: $dark-gray;
+        border-color: $medium-gray;
+        border-radius: 5px;
         &:hover {
           background-color: $light-gray;
         }
@@ -102,7 +108,7 @@ p {
           // PLEASE CHANGE MY COLORS FOR BETTER DESIGN
           background-color: black;
           color: white;
-        }      
+        }
       }
 
       .desk-avatars-container {
@@ -153,8 +159,9 @@ p {
       border: 1px solid $dark-gray;
       margin-bottom: 20px;
       width: 100%;
-      background-color: $dark-gray;
       color: white;
+      background-color: rgba(130,128,128, 0.7);
+      border: 1px solid rgba(255,255,255, 0.7);
     }
 
     .summary-body {
