@@ -3,6 +3,13 @@
   margin: 0 30px;
   margin-bottom: 40px;
 }
+#row-home {
+  background-color: $light-gray;
+  padding: 0px 70px;
+  .card {
+    background-color: white;
+  }
+}
 .info {
   padding-top: 20px;
   text-align: center;
@@ -13,5 +20,6 @@
   .paragraph {
     padding-top: 20px;
     margin-bottom: 50px;
+    font-size: 20px;
   }
 }
