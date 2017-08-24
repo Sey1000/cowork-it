@@ -14,13 +14,16 @@
 .btn-red {
   background-color: $dark-red;
   color: white;
+  &:hover{
+  background-color: #ba2138;
+  }
+}
+
+.btn-search{
   padding: 8px 50px;
   border-radius: 5px;
   right: 95px;
   border: none;
-  &:hover{
-    background-color: #ba2138;
-  }
 }
 
 .btn-facebook {
@@ -34,3 +37,9 @@
   }
 }
 
+.btn-cancel{
+  padding: 2px 12px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-decoration:none;
+}
