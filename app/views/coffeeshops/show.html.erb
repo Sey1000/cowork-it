@@ -20,7 +20,7 @@
         <p>Desk "<%= ["LIV", "PETER PAN", "SEY", "TOY", "SAM"].sample %>"</p>
         <i class="fa fa-caret-down"></i>
       </div>
-      <div class="desk-content hidden">
+      <div class="desk-content" style="display:none;">
         <div class="desk-subhead">
           <ul class="list-group list-inline">
             <li>
@@ -90,10 +90,8 @@
           <%= @coffeeshop.name %>
         </h3>
       </div>
-      <p id="booking-desk-date">
-      </p>
-      <p id="booking-time-range">
-      </p>
+      <p id="booking-desk-date"></p>
+      <p id="booking-time-range"></p>
       <%= simple_form_for(@booking) do |f| %>
       <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
       <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
