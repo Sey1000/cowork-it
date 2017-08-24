@@ -77,7 +77,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <% end %>
   </div>
@@ -94,10 +93,12 @@
       </div>
       <p id="booking-desk-date"></p>
       <p id="booking-time-range"></p>
+      <h5 id="booking-total-cost"></h5>
       <%= simple_form_for(@booking) do |f| %>
       <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
       <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
       <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
+      <%= f.input :cost, as: :hidden, input_html: {id: "hidden-total-cost"} %>
       <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn" %>
       <% end %>
     </div>

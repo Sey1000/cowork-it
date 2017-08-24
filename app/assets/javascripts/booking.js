@@ -4,6 +4,7 @@ $(document).ready(function() {
         $('.time-select-btn').removeClass('background-gray-button');
         $('#booking-time-range').text("");
         $('#booking-desk-date').text("");
+        $('#booking-total-cost').text("");
     });
 
     $('.time-select-btn').click(function() {
@@ -45,10 +46,12 @@ $(document).ready(function() {
         }
         
         var booking_cost = $(this).data('cost') * $('.background-gray-button').length;
-
+        $('#booking-total-cost').text(booking_cost + " €");
         $('#booking-time-range').text(start + " - " + end);
+
         $('#hidden-start-time').val(start_time_obj);
         $('#hidden-end-time').val(end_time_obj);
+        $('#hidden-total-cost').val(booking_cost);
 
         console.log(desk_id);
         console.log(booking_cost);
