@@ -21,17 +21,18 @@
 }
 
 .booking-grid {
+  line-height: 30px;
   display: grid;
-  grid-template-columns: 3fr 2fr 3fr 4fr;
+  grid-template-columns: 2fr 2fr 2fr 4fr 1fr;
   width: 700px;
-  padding: 30px; 
+  padding: 30px;
 }
 
 .profile-header {
   font-family: $headers-font;
   font-weight: bold;
   grid-row: 1 / span 1;
-  grid-column: 1/ span 3;
+  grid-column: 1/ span 12;
   border-bottom: 1px solid rgb(220,220,220);
   p {
     margin-bottom: 3px;
@@ -87,7 +88,9 @@
   p {
     margin-bottom: 3px;
   }
+
 }
+
 .date-header {
   opacity: 0.8;
   grid-row: 7 / span 1;
@@ -100,12 +103,21 @@
   grid-column: 2/ span 1;
   margin-top: 10px;
 }
+
+.cost-header {
+  opacity: 0.8;
+  grid-row: 7 / span 1;
+  grid-column: 3/ span 1;
+  margin-top: 10px;
+}
+
 .coffeeshop-header {
   opacity: 0.8;
   grid-row: 7 / span 1;
   grid-column: 4/ span 1;
   margin-top: 10px;
 }
+
 .date {
   opacity: 0.6;
   grid-row: 8 / span 1;
@@ -118,9 +130,22 @@
   grid-column: 2/ span 1;
 }
 
+.cost {
+  opacity: 0.6;
+  grid-row: 8 / span 1;
+  grid-column: 3/ span 1;
+}
+
 .coffeeshop-name {
   opacity: 0.6;
   grid-row: 8 / span 1;
-  grid-column: 4/ span 1;
+  grid-column: 4/ span 3;
   overflow: visible;
 }
+
+.cancel {
+  grid-row: 8 / span 1;
+  grid-column: 7/ span 1;
+  overflow: visible;
+}
+
