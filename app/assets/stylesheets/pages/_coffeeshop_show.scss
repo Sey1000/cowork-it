@@ -166,6 +166,12 @@ p {
 
     .summary-body {
       margin-bottom: 20px;
+
+      #booking-total-cost {
+        font-family: $headers-font;
+        font-weight: bolder;
+        // font-size: 1em;
+      }
     }
   }
 
