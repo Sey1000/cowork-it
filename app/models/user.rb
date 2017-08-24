@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :bookings
   before_create :set_photo
 
+  scope :first_name, -> (first_name) {where first_name: first_name}
+  scope :last_name, -> (last_name) {where last_name: last_name}
+  scope :occupation, -> (occupation) {where occupation: occupation}
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

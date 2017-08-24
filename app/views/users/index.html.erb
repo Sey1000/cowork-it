@@ -1,24 +1,32 @@
+<h1 class= "heading">CoworkIT users</h1>
 <div class="container">
-  <div class="row">
-    <h1>List of all users</h1>
-  </div>
   <div class="user-list">
-
-    <% @users.each do |user| %>
-    <div class="row" id="user-rows">
-      <div class="col-xs-6 col-sm-3">
-        <% avatar_url = user.facebook_picture_url || current_user.photo_url %>
-        <%= image_tag avatar_url, class: "class-photos" %>
-      </div>
-      <div class="row" id="user-info">
-        <div class="col-xs-6 col-sm-4">
-          <%= link_to user_path(user) do %>
-          <%= user.first_name %>
-          <%= user.last_name %>
-        </div>
+    <form action="/users" action="GET">
+      <input type="text" name="first_name"  placeholder="First Name" class="form-style">
+      <input type="text" name="last_name" class="form-style" placeholder="Last Name">
+      <input type="text" name="occupation" class="form-style" placeholder="Occupation">
+      <input type="submit" value="Find a user" class="btn-red btn-search">
+    </form>
+    <% if @users.empty? %>
+      <h2>Sorry, we couldnt find any users to your search :( </h2>
+    <% else %>
+      <div class="row gray-background" id="user-info">
+        <% @users.each do |user| %>
+      <!-- <div class="row gray-background" id="user-rows"> -->
+        <!-- <div class="col-xs-6 col-sm-3"> -->
+          <%# avatar_url = user.facebook_picture_url || current_user.photo_url %>
+          <%#= image_tag avatar_url, class: "class-photos" %>
+        <!-- </div> -->
+          <div class="user-name">
+            <%= link_to user_path(user) do %>
+              <div class="col-xs-6 col-sm-4">
+                <%= user.first_name %>
+                <%= user.last_name %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

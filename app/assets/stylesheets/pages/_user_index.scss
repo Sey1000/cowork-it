@@ -1,0 +1,20 @@
+.heading {
+  font-family: $logo-font;
+  width: 100%;
+  text-align: center;
+  color: $dark-blue;
+}
+
+.gray-background {
+  background: transparent;
+}
+
+.user-name {
+  a {
+    color: $dark-blue;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+    }
+  }
+}
