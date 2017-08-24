@@ -54,14 +54,21 @@
         </div>
         <div class="desk-body">
           <div class="desk-time-list">
+            <div class="start-time">
+              <p><%= desk.start_time.hour %>:00</p>
+            </div>
             <% btn_time = start %>
-            <% (desk.hour_count + 1).times do %>
+            <% (desk.hour_count).times do %>
             <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-            <div class="btn btn-white btn-md time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
-              <%= btn_time %>
+            <div class="btn btn-white btn-md time-select-btn has-popover" data-toggle="popover" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
+              <div class="popover-content hidden"><%= slot_time.hour %> - <%= slot_time.hour + 1 %> h
+              </div>
             </div>
             <% btn_time += 1 %>
             <% end %>
+            <div class="end-time">
+              <p><%= desk.end_time.hour %>:00</p>
+            </div>
           </div>
           <div class="desk-avatars-container">
             <!-- show avatar for corresponding time slot -->
@@ -72,7 +79,7 @@
               <% correct_start = desk_start >= book.start_time.hour %>
               <% correct_end = desk_start + 1 <= book.end_time.hour %>
               <% if correct_start && correct_end %>
-              <% avatar_url = book.user.facebook_picture_url || "http://placehold.it/30x30" %>
+              <% avatar_url = book.user.facebook_picture_url || book.user.photo_url %>
               <%= link_to user_path(book.user) do %>
                 <%= image_tag avatar_url, class: "avatar-xs"%>
               <% end %>
