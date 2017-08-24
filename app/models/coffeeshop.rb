@@ -14,9 +14,32 @@ class Coffeeshop < ApplicationRecord
       self.desks.each do |desk|
         desk_prices << desk.cost
       end
-      return "#{desk_prices.reduce(:+) / desk_prices.length} €/h"
+      return "from #{desk_prices.min} €/h"
     end
     return "No desk available"
+  end
+
+  def wifi_availability
+    unless self.desks.blank?
+      self.desks.first.wifi
+    end
+  end
+
+  def power_outlet_availability
+    unless self.desks.blank?
+      self.desks.first.power_outlet
+    end
+  end
+
+  def capacity_overall
+    unless self.desks.blank?
+      capacity = []
+      self.desks.each do |desk|
+        capacity << desk.capacity
+      end
+      capacity.min
+    end
+
   end
 
 end

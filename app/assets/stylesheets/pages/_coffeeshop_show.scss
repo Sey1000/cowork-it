@@ -9,13 +9,16 @@ p {
   background-color: white;
 }
 .desks-container {
-  padding: 40px;
-  padding-left: 100px;
+  padding: 40px 0;
   h3 {
     padding: 8px;
     border-bottom: 2px solid $light-gray;
   }
 }
+
+// * {
+//   border: 1px solid red;
+// }
 
 .each-desk {
   border: 1px solid #CCCCCC;
@@ -31,11 +34,17 @@ p {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid $light-gray;
+    
     p {
       margin: 0;
     }
+    
     .fa {
       font-size: 1.3em;
+    }
+
+    &:hover {
+      background: #B3B3B3;
     }
   }
 
@@ -47,7 +56,7 @@ p {
     }
     p {
       font-size: 15px;
-      margin-bottom: 5px;
+      margin-bottom: 0px;
     }
     .list-inline {
       margin-bottom: 0;
@@ -58,40 +67,50 @@ p {
   }
 
   .desk-body {
-    // background: yellow;
     display: flex;
+    padding: 0px 50px 25px 50px;
 
     .desk-time-list {
-      // background: #E6A4EB;
       display: flex;
+      flex-grow: 1;
       flex-direction: column;
-      justify-content: space-around;
-      border-right: 1px solid gray;
-      .btn-white {
-        margin-left: 5px;
-        color: $dark-blue;
-        background-color: white;
-        border-right-color: $dark-gray;
-        border-bottom-color: $dark-gray;
-        &:hover {
-          background-color: $light-gray;
+      margin-bottom: 5px;
+
+      .each-desk-time {
+        position: relative;
+        
+        .desk-avatars {
+          position: absolute;
+          height: 50px;
+          right: 20px;
+          top: 25px;
         }
-      }
+        
+        .btn-white {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 80px;
+          margin: 10px 0;
+          color: $dark-blue;
+          background-color: white;
+          border-color: $dark-gray;
+          &:hover {
+            background-color: $light-gray;
+          }
+        }
+      }      
     }
 
     .desk-avatars-container {
-      padding: 5px 0px;
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-
+      margin-right: 5px;
+      margin-left: 5px;
       .time-slot {
-        height: 38px;
-        margin-right: 5px;
+        height: 80px;
         background-color: $light-gray;
-        margin: 1px 0px;
-        flex-grow: 1;
         display: flex;
         align-items: center;
         padding: 3px;
@@ -113,7 +132,7 @@ p {
     }
   }
   position: fixed;
-  right: 0;
+  right: 8%;
   top: 30vh;
   border: 1px solid $dark-gray;
   border-radius: 3px;

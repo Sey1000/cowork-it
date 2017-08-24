@@ -5,7 +5,7 @@
 <%= render 'shared/coffeeshop_banner' %>
 
 <div class="row">
-  <div class="col-xs-9 desks-container">
+  <div class="col-xs-6 col-xs-offset-1 desks-container">
     <div class="coffeeshop-description">
       <h3>About Us</h3>
       <p>
@@ -55,32 +55,27 @@
         <div class="desk-body">
           <div class="desk-time-list">
             <% btn_time = start %>
-            <% (desk.hour_count + 1).times do %>
+            <% (desk.hour_count).times do %>
             <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-            <div class="btn btn-white btn-md time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
-              <%= btn_time %>
+            
+            <div class="each-desk-time">
+              <div class="desk-avatars">
+                <% desk.bookings.each do |book| %>
+                  <% correct_start = btn_time >= book.start_time.hour %>
+                  <% correct_end = btn_time + 1 <= book.end_time.hour %>
+                  <% if correct_start && correct_end %>
+                    <% avatar_url = book.user.facebook_picture_url || book.user.photo_url %>
+                    <%= link_to user_path(book.user) do %>
+                      <%= image_tag avatar_url, class: "avatar-sm"%>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="btn btn-white time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
+                <%= slot_time.hour %> - <%= slot_time.hour + 1 %> h
+              </div>
             </div>
             <% btn_time += 1 %>
-            <% end %>
-          </div>
-          <div class="desk-avatars-container">
-            <!-- show avatar for corresponding time slot -->
-            <% desk_start = start %>
-            <% desk.hour_count.times do %>
-            <div class="time-slot">
-              <% desk.bookings.each do |book| %>
-              <% correct_start = desk_start >= book.start_time.hour %>
-              <% correct_end = desk_start + 1 <= book.end_time.hour %>
-              <% if correct_start && correct_end %>
-              <% avatar_url = book.user.facebook_picture_url || book.user.photo_url %>
-              <%= link_to user_path(book.user) do %>
-                <%= image_tag avatar_url, class: "avatar-xs"%>
-              <% end %>
-
-              <% end %>
-              <% end %>
-            </div>
-            <% desk_start += 1 %>
             <% end %>
           </div>
         </div>
@@ -89,27 +84,26 @@
     </div>
     <% end %>
   </div>
+  <div class="col-xs-1"></div>
   <div class="col-xs-3 summary-right">
     <div class="summary-head">
       YOUR DESK
     </div>
     <div class="summary-body">
-    <div id="booking-coffeeshop-name">
-    <h3>
-      <%= @coffeeshop.name %>
-    </h3>
-    </div>
-    <p id="booking-desk-date">
-      Choose your date
-    </p>
-    <p id="booking-time-range">
-      Choose your time
-    </p>
+      <div id="booking-coffeeshop-name">
+        <h3>
+          <%= @coffeeshop.name %>
+        </h3>
+      </div>
+      <p id="booking-desk-date">
+      </p>
+      <p id="booking-time-range">
+      </p>
       <%= simple_form_for(@booking) do |f| %>
-        <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
-        <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
-        <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
-        <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn" %>
+      <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
+      <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
+      <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
+      <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn" %>
       <% end %>
     </div>
   </div>
