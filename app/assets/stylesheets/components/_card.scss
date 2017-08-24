@@ -12,18 +12,17 @@
   position: relative;
   height: 150px;
 }
-.card-description {
+.card-name {
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
-.card-description h2 {
+.card-name h2 {
   font-size: 24px;
 }
 .card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
+  font-size: 20px;
+
 }
 .card-bottom {
   position: relative;
@@ -56,20 +55,36 @@
 //   opacity: 0.1;
 // }
 .card:hover {
+
   .show-card{
+    background: rgba(255,255,255,0.7);
     opacity: 1;
+    color: $dark-blue;
+    position: relative;
   }
-  .card-top {
-    opacity: 0.4;
+  .card-description {
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    right: 5%;
+    display: block;
   }
-  .card-description{
+
+  .desk-icons{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .card-name{
     opacity: 0;
   }
 }
+
 .show-card{
+  position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: 10;
- }
+}
 
