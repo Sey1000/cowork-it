@@ -7,10 +7,10 @@ $(document).ready(function() {
     var desk_date = $(this).data('date');
     var start = $(this).data('start');
     var end = $(this).data('end');
-    var start_time_obj = $(this).data('start-time')
-    var end_time_obj = $(this).data('end-time')
+    var start_time_obj = $(this).data('start-time');
+    var end_time_obj = $(this).data('end-time');
 
-    $(this).addClass('.time-selected');
+    $(this).addClass('background-gray-button');
 
     $('#hidden-coffeeshop-name').val(desk_id);
     $('#hidden-start-time').val(start_time_obj);

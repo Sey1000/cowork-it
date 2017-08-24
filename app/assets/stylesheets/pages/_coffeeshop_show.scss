@@ -151,7 +151,7 @@ p {
     margin-bottom: 20px;
     width: 100%;
     background-color: $dark-gray;
-    color: white,
+    color: white;
   }
 
   .summary-body {
@@ -159,6 +159,10 @@ p {
   }
 }
 
-.time-selected {
+.background-gray-button {
   background-color: #B3B3B3;
+}
+
+.remove-margins {
+  margin: 0;
 }
