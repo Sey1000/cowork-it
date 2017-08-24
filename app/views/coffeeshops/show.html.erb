@@ -2,15 +2,13 @@
 <%= @coffeeshop.name %>
 <% end %>
 
-<%= render 'shared/coffeeshop_banner' %>
+<%= render partial: 'shared/coffeeshop_banner', locals: { coffeeshop_picture: @coffeeshop.picture_url } %>
 
 <div class="row">
   <div class="col-xs-6 col-xs-offset-1 desks-container">
     <div class="coffeeshop-description">
       <h3>About Us</h3>
-      <p>
-        Der neue Berlin-Mitte-Hotspot für heißen Kaffee, coole Getränke sowie eine herzhafte Berliner Stulle. Entdecke Berliner Spezialitäten einmal neu - mit unserer Backkartoffel im Currywurst- oder Chili- Style und lokalen Drinks. Außerdem unterstützen wir unsere regionalen Lieferanten. Schaut doch mal rein - unser Mittagsmenü wechselt täglich.
-      </p>
+      <p><%= @coffeeshop.description %></p>
     </div>
     <h3>Our Desks</h3>
     <% @coffeeshop.desks.each do |desk| %>
@@ -57,7 +55,7 @@
             <% btn_time = start %>
             <% (desk.hour_count).times do %>
             <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-            
+
             <div class="each-desk-time">
               <div class="desk-avatars">
                 <% desk.bookings.each do |book| %>
