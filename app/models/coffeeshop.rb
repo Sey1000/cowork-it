@@ -19,4 +19,22 @@ class Coffeeshop < ApplicationRecord
     return "No desk available"
   end
 
+  def wifi_availability
+    unless self.desks.blank?
+      self.desks.first.wifi
+    end
+  end
+
+  def power_outlet_availability
+    unless self.desks.blank?
+      self.desks.first.power_outlet
+    end
+  end
+
+  def capacity_overall
+    unless self.desks.blank?
+    end
+
+  end
+
 end
