@@ -4,6 +4,8 @@
 
 <%= render partial: 'shared/coffeeshop_banner', locals: { coffeeshop_picture: @coffeeshop.picture_url } %>
 
+<div id="special-booking-filter"></div>
+
 <div class="row remove-margins">
   <div class="col-xs-6 col-xs-offset-1 desks-container">
     <div class="coffeeshop-description">
@@ -55,7 +57,7 @@
             <% btn_time = start %>
             <% (desk.hour_count).times do %>
             <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-            <div class="btn btn-white time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>">
+            <div class="btn btn-white time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>" data-cost="<%= desk.cost %>">
               <%= slot_time.hour %> - <%= slot_time.hour + 1 %> h
               <div class="desk-avatars">
                 <% desk.bookings.each do |book| %>

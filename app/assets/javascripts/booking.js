@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+    $('#special-booking-filter').click(function() {
+        $('.time-select-btn').removeClass('background-gray-button');
+        $('#booking-time-range').text("");
+        $('#booking-desk-date').text("");
+    });
+
     $('.time-select-btn').click(function() {
         // set desk id and date automatically
         var desk_id = $(this).parents().eq(3).data('id');
@@ -38,12 +44,15 @@ $(document).ready(function() {
             var end_time_obj = $('.background-gray-button').last().data('end-time');
         }
         
+        var booking_cost = $(this).data('cost') * $('.background-gray-button').length;
+
         $('#booking-time-range').text(start + " - " + end);
         $('#hidden-start-time').val(start_time_obj);
         $('#hidden-end-time').val(end_time_obj);
 
-    console.log(desk_id);
-    console.log(start_time_obj);
-    console.log(end_time_obj);
-});
+        console.log(desk_id);
+        console.log(booking_cost);
+        console.log(start_time_obj);
+        console.log(end_time_obj);
+    });
 });
