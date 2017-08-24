@@ -24,6 +24,7 @@ class CoffeeshopsController < ApplicationController
     @bookings = @coffeeshop.bookings
     # for simple form
     @booking = Booking.new
+    session[:current_coffeeshop] = coffeeshop_path(@coffeeshop)
   end
 
   private
