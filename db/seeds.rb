@@ -6,14 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Started seeding ..."
 Booking.destroy_all
 Desk.destroy_all
 User.destroy_all
 Coffeeshop.destroy_all
 
 # Seeds for User
-first_names = %w[John Sarah Kris]
-last_names = %w[Brown Miller Green Shaw]
+first_names = %w(John Sarah Kris)
+last_names = %w(Brown Miller Green Shaw)
 
 userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg")
 userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg")
@@ -22,20 +23,33 @@ userD = User.create(email: 'woof@wagon.com', password: '123456', password_confir
 userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.eleanorfrajka.com/images/profile_pic_square.jpg")
 
 #Seeds for Coffeeshop
-coffeeA = Coffeeshop.create(email: "nicecafe@wagon.com", name: "westberlin bar&shop", description: "some description", address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
-coffeeB = Coffeeshop.create(email: "awesomecafe@wagon.com", name: "#HASHTAG Coffee Shop", description: "another description", address: "Krausenstraße 41, 10117 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
-coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Refinery High End Coffee", description: "some more description", address: "Albrechtstraße 11B, 10117 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456')
-coffeeD = Coffeeshop.create(email: "nicecafe@wagon.com", name: "taz Café", description: "some description", address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
-coffeeE = Coffeeshop.create(email: "prettycafe@wagon.com", name: "Cafe Journale", description: "another description", address: "Lindenstraße 37 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
-coffeeF = Coffeeshop.create(email: "justcafe@wagon.com", name: "Café Dix", description: "some more description", address: "Alte Jakobstraße 124-128 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456')
-coffeeG = Coffeeshop.create(email: "coolcafe@wagon.com", name: "Hallesches Haus", description: "some description", address: "Tempelhofer Ufer 1 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
-coffeeH = Coffeeshop.create(email: "heycafe@wagon.com", name: "Café Anna Blume", description: "another description", address: "Kollwitzstraße 83 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
-coffeeI = Coffeeshop.create(email: "yolocafe@wagon.com", name: "Café Hilde", description: "some more description", address: "Metzer Str. 22 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456')
-coffeeJ = Coffeeshop.create(email: "cacafe@wagon.com", name: "Chupenga Burritos & Salads", description: "some description", address: "Charlottenstraße 4 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
-coffeeK = Coffeeshop.create(email: "yescafe@wagon.com", name: "Unicorn.Berlin Mitte", description: "another description", address: "Brunnenstraße 173, 10115 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
-coffeeL = Coffeeshop.create(email: "nocafe@wagon.com", name: "Café P1", description: "some more description", address: "Panoramastraße 1, 10178 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456')
-coffeeM = Coffeeshop.create(email: "whycafe@wagon.com", name: "Cafe Lucre", description: "some description", address: "Voßstraße 35 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456')
-coffeeN = Coffeeshop.create(email: "pleasecafe@wagon.com", name: "Volcano's Lava Rock Cafe", description: "another description", address: "Volcano, HI, United States", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456')
+short_des1 = Faker::Movie.quote
+short_des2 = Faker::Movie.quote
+short_des3 = Faker::Movie.quote
+short_des4 = Faker::Movie.quote
+short_des5 = Faker::Movie.quote
+des1 = Faker::Hipster.paragraph(4, false, 4)
+des2 = Faker::Hipster.paragraph(4, false, 4)
+des3 = Faker::Hipster.paragraph(4, false, 4)
+des4 = Faker::Hipster.paragraph(4, false, 4)
+des5 = Faker::Hipster.paragraph(4, false, 4)
+short_descriptions = [short_des1, short_des2, short_des3, short_des4, short_des5]
+descriptions = [des1, des2, des3, des4, des5]
+picture_urls = %w(http://genylabs.typepad.com/.a/6a00d8345675df69e201bb08fc4a57970d-pi https://cdn.theculturetrip.com/wp-content/uploads/2016/02/lomi.jpg https://s-media-cache-ak0.pinimg.com/originals/27/f5/18/27f518825e4d377dbdb41ed1459d1d6e.jpg http://barcelonanavigator.com/wp-content/uploads/2014/07/Valkiria-Hub-Space-Cafe.jpg http://5www.ecestaticos.com/imagestatic/clipping/5ae/a7d/5aea7dfc12e0157136e975ce6592c46f/atlantico-la-bruta-ma-khin-cafe-cinco-restaurantes-con-sorpresa-del-brunch-gourmet-a-la-inspiracion-birmana.jpg?mtime=1446739348 http://hipparis.com/wp-content/uploads/2015/06/steel-011Lead.jpg http://bluefoxhr.co.uk/wp-content/uploads/2015/04/coffeeshop.jpg http://www.austinsentinel.com/wp-content/uploads/2016/07/Bennu-Coffeee.jpg https://bloximages.chicago2.vip.townnews.com/tucson.com/content/tncms/assets/v3/editorial/a/f0/af013458-c621-51ab-b36e-69540cd5d099/57716fc62d769.image.jpg?resize=1200%2C802 https://www.jlgrealestate.com/wp-content/uploads/2015/02/IMG_8704.jpg https://i1.wp.com/www.iamsterdam.com/media/locations-ndtrc/shopping/v-c-vintage-marie-charlotte-peze.jpg?ssl=1 http://zodesignart.com/wp-content/uploads/2017/05/follow-given-guidelines-to-choose-the-best-coffee-shop-design-and-beautiful-counter-for-of-how-.jpg http://cdn.nanilumi.com/2017/06/16/ideas-design-for-coffee-shop-room-decorating-home-trend-home-design.jpg https://www.laurelandwolf.com/blog/wp-content/uploads/2016/09/Coffee-Shops-Sightglass2.jpg)
+coffeeA = Coffeeshop.create(email: "nicecafe@wagon.com", name: "westberlin bar&shop", description: descriptions.sample, address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeB = Coffeeshop.create(email: "awesomecafe@wagon.com", name: "#HASHTAG Coffee Shop", description: descriptions.sample, address: "Krausenstraße 41, 10117 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeC = Coffeeshop.create(email: "decentcafe@wagon.com", name: "Refinery High End Coffee", description: descriptions.sample, address: "Albrechtstraße 11B, 10117 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeD = Coffeeshop.create(email: "nicecafe@wagon.com", name: "taz Café", description: descriptions.sample, address: "Friedrichstraße 215, 10969 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeE = Coffeeshop.create(email: "prettycafe@wagon.com", name: "Cafe Journale", description: descriptions.sample, address: "Lindenstraße 37 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeF = Coffeeshop.create(email: "justcafe@wagon.com", name: "Café Dix", description: descriptions.sample, address: "Alte Jakobstraße 124-128 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeG = Coffeeshop.create(email: "coolcafe@wagon.com", name: "Hallesches Haus", description: descriptions.sample, address: "Tempelhofer Ufer 1 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeH = Coffeeshop.create(email: "heycafe@wagon.com", name: "Café Anna Blume", description: descriptions.sample, address: "Kollwitzstraße 83 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeI = Coffeeshop.create(email: "yolocafe@wagon.com", name: "Café Hilde", description: descriptions.sample, address: "Metzer Str. 22 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeJ = Coffeeshop.create(email: "cacafe@wagon.com", name: "Chupenga Burritos & Salads", description: descriptions.sample, address: "Charlottenstraße 4 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeK = Coffeeshop.create(email: "yescafe@wagon.com", name: "Unicorn.Berlin Mitte", description: descriptions.sample, address: "Brunnenstraße 173, 10115 Berlin", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeL = Coffeeshop.create(email: "nocafe@wagon.com", name: "Café P1", description: descriptions.sample, address: "Panoramastraße 1, 10178 Berlin", website: "refinerycoffee.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeM = Coffeeshop.create(email: "whycafe@wagon.com", name: "Cafe Lucre", description: descriptions.sample, address: "Voßstraße 35 Berlin", website: "westberlin-bar-shop.de", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
+coffeeN = Coffeeshop.create(email: "pleasecafe@wagon.com", name: "Volcano's Lava Rock Cafe", description: descriptions.sample, address: "Volcano, HI, United States", website: "hashtagberlin.net", password: '123456', password_confirmation: '123456', short_description: short_descriptions.sample, picture_url: picture_urls.sample)
 
 # Seeds for Desk
 t = Time.now.beginning_of_day + 1.day
@@ -114,4 +128,5 @@ bookE.desk = deskB
 bookE.cost = (bookE.end_time - bookE.start_time)/3600 * bookE.desk.cost
 bookE.save
 
+puts "Seeding finished!! Go back to work!"
 

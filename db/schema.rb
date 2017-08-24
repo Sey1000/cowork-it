@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823143048) do
+ActiveRecord::Schema.define(version: 20170824105812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20170823143048) do
     t.string   "website"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "short_description"
+    t.string   "picture_url"
     t.index ["email"], name: "index_coffeeshops_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_coffeeshops_on_reset_password_token", unique: true, using: :btree
   end
@@ -83,6 +85,8 @@ ActiveRecord::Schema.define(version: 20170823143048) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "photo_url"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

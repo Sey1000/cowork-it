@@ -1,8 +1,9 @@
 .btn-register {
-  background-color: #9D9D9D;
-  color: white;
+  background-color: white;
+  color: $dark-blue;
   padding: 8px 50px;
   border-radius: 5px;
+  border: 2px solid $dark-blue;
   position: absolute;
   right: 95px;
   &:hover{
