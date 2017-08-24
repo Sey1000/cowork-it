@@ -21,6 +21,7 @@ p {
 // }
 
 .each-desk {
+  z-index: 100;
   border: 1px solid $dark-blue;
   border-radius: 4px;
   position: relative;
@@ -132,6 +133,7 @@ p {
     padding: 0;
   }
   .summary-right {
+    z-index: 100;
     .btn-darkred {
       width: 200px;
       color: white;
@@ -171,4 +173,14 @@ p {
 
   .remove-margins {
     margin: 0;
+  }
+
+  #special-booking-filter {
+    position: fixed;
+    background-color: black;
+    opacity: 0;
+    width: 100%;
+    top: 70px;
+    bottom: 0;
+    z-index: 99;
   }
