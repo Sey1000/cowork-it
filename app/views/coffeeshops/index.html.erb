@@ -1,10 +1,10 @@
 <div class="wrapper-grey">
-  <h2 class="text-center"><%= @coffeeshops.length %> Coffeeshops in <%= @place %></h2>
+  <h2 class="text-center"><%= @statement %></h2>
   <div class="main-container">
     <div class="cards">
       <div class="row">
         <% @coffeeshops.each do |cs| %>
-          <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability, card_banner_url: cs.picture_url, coffeeshop_subtitle: cs.short_description } %>
+          <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability, card_banner_url: cs.picture_url, coffeeshop_subtitle: cs.short_description, capacity: cs.capacity_overall } %>
         <% end %>
       </div>
     </div>

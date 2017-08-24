@@ -1,17 +1,22 @@
 class CoffeeshopsController < ApplicationController
   def index
-    if params[:address].present? && params[:date].present?
-      nearby_coffeeshops = Coffeeshop.near(params[:address], 5)
-      @place = params[:address].capitalize!
-      @coffeeshops = nearby_coffeeshops.reject { |coffeeshop| is_full?(coffeeshop, params[:date]) }
-    elsif params[:address].present?
+    if params[:address].present?
       @coffeeshops = Coffeeshop.near(params[:address], 5)
-      @place = params[:address].capitalize!
+      if @coffeeshops.length == 0
+        @statement = "Sorry no coffeeshops found"
+      elsif params[:date].present?
+        @place = params[:address].downcase.capitalize!
+        @coffeeshops = @coffeeshops.reject { |coffeeshop| is_full?(coffeeshop, params[:date]) }
+        @statement = "#{@coffeeshops.length.to_s} Coffeeshops in #{@place}"
+      else
+        @place = params[:address].downcase.capitalize!
+        @statement =  "#{@coffeeshops.length.to_s} Coffeeshops in #{@place}"
+      end
     else
-      @coffeeshops = Coffeeshop.where.not(latitude: nil, longitude: nil)
-      @place = "the world"
-    end
-
+     @coffeeshops = Coffeeshop.where.not(latitude: nil, longitude: nil)
+     @place = "the world"
+     @statement = "#{@coffeeshops.length.to_s} Coffeeshops in #{@place}"
+   end
 
   @hash = Gmaps4rails.build_markers(@coffeeshops) do |coffeeshop, marker|
     marker.lat coffeeshop.latitude
@@ -21,7 +26,7 @@ class CoffeeshopsController < ApplicationController
   @user = current_user
 end
 
-  def show
+def show
   @coffeeshop = Coffeeshop.find(params[:id])
   @bookings = @coffeeshop.bookings
     # for simple form
