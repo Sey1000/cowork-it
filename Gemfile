@@ -26,6 +26,9 @@ gem 'omniauth-facebook'
 # Datepicker
 gem 'bootstrap-datepicker-rails'
 
+# Seed Data
+gem 'faker'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
