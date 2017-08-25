@@ -5,6 +5,7 @@ $(document).ready(function() {
         $('#booking-time-range').text("");
         $('#booking-desk-date').text("");
         $('#booking-total-cost').text("");
+        $("#reserve-btn").attr("disabled", true);
     });
 
     $('.time-select-btn').click(function() {
