@@ -1,27 +1,31 @@
 <h1 class= "heading">CoworkIT users</h1>
 <div class="container">
   <div class="user-list">
-    <form action="/users" action="GET">
+    <%= simple_form_for @user, method: :get do |f| %>
+      <%= f.input :name, as: :fake, placeholder: 'Name' %>
+      <%= f.input :occupation, as: :fake %>
+      <%= f.button :submit, "Find a user", class: 'btn-red btn-search'%>
+    <% end %>
+    <!-- <form action="/users" action="GET">
       <input type="text" name="first_name"  placeholder="First Name" class="form-style">
       <input type="text" name="last_name" class="form-style" placeholder="Last Name">
       <input type="text" name="occupation" class="form-style" placeholder="Occupation">
       <input type="submit" value="Find a user" class="btn-red btn-search">
-    </form>
+    </form> -->
     <% if @users.empty? %>
       <h2>Sorry, we couldnt find any users to your search :( </h2>
     <% else %>
       <div class="row gray-background" id="user-info">
         <% @users.each do |user| %>
-      <!-- <div class="row gray-background" id="user-rows"> -->
-        <!-- <div class="col-xs-6 col-sm-3"> -->
-          <%# avatar_url = user.facebook_picture_url || current_user.photo_url %>
-          <%#= image_tag avatar_url, class: "class-photos" %>
-        <!-- </div> -->
           <div class="user-name">
             <%= link_to user_path(user) do %>
+              <% avatar_url = user.facebook_picture_url || user.photo_url %>
               <div class="col-xs-6 col-sm-4">
-                <%= user.first_name %>
-                <%= user.last_name %>
+              <%= image_tag avatar_url, class: "class-photos avatar-comment" %>
+                <div class="user-cards">
+                  <%= user.first_name %>
+                  <%= user.last_name %>
+                </div>
               </div>
             <% end %>
           </div>

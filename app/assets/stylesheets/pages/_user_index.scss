@@ -1,3 +1,9 @@
+.user-list{
+  form {
+    margin: 25px 0 50px 0;
+    text-align: center;
+  }
+}
 .heading {
   font-family: $logo-font;
   width: 100%;
@@ -8,7 +14,6 @@
 .gray-background {
   background: transparent;
 }
-
 .user-name {
   a {
     color: $dark-blue;
@@ -17,4 +22,10 @@
     &:hover {
     }
   }
+}
+
+.user-cards{
+  padding: 10px;
+  background-color: #e6bc80;
+  margin: 5px 10px;
 }

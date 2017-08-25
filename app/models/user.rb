@@ -31,6 +31,10 @@ class User < ApplicationRecord
     return user
   end
 
+  def full_name
+    [first_name, last_name]
+  end
+
   private
 
   def set_photo
@@ -38,4 +42,6 @@ class User < ApplicationRecord
       self.photo_url = "https://vignette1.wikia.nocookie.net/cutemariobro/images/5/59/Person-placeholder.jpg/revision/latest?cb=20170131092134"
     end
   end
+
+
 end
