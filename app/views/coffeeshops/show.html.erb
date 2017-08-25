@@ -15,69 +15,7 @@
     <h3>Our Desks</h3>
     <% @coffeeshop.desks.each do |desk| %>
     <!-- setting some local variables for logic -->
-    <% start = desk.start_time.hour %>
-    <% end_var = desk.end_time.hour %>
-    <div class="each-desk" data-id="<%= desk.id %>">
-      <div class="desk-head">
-        <p>Desk "<%= ["LIV", "PETER PAN", "SEY", "TOY", "SAM"].sample %>"</p>
-        <i class="fa fa-caret-down"></i>
-      </div>
-      <div class="desk-content" style="display:none;">
-        <div class="desk-subhead">
-          <ul class="list-group list-inline">
-            <li>
-              <i class="fa fa-calendar-o "></i>
-              <div class="desk-hour">
-                <p><%= desk.str_date %></p>
-                <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-eur"></i>
-              <div class="per-hour-rate">
-                <p> <%= desk.cost %>€ / hour </p>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-wifi"></i>
-              <p>Yes</p>
-            </li>
-            <li>
-              <i class="fa fa-plug"></i>
-              <p>Yes</p>
-            </li>
-            <li>
-              <i class="fa fa-users"></i>
-              <p>max. 10</p>
-            </li>
-          </ul>
-        </div>
-        <div class="desk-body">
-          <div class="desk-time-list">
-            <% btn_time = start %>
-            <% (desk.hour_count).times do %>
-            <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
-            <div class="btn btn-white time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>" data-cost="<%= desk.cost %>">
-              <%= slot_time.hour %> - <%= slot_time.hour + 1 %> h
-              <div class="desk-avatars">
-                <% desk.bookings.each do |book| %>
-                <% correct_start = btn_time >= book.start_time.hour %>
-                <% correct_end = btn_time + 1 <= book.end_time.hour %>
-                <% if correct_start && correct_end %>
-                <% avatar_url = book.user.facebook_picture_url || book.user.photo_url %>
-                <%= link_to user_path(book.user) do %>
-                <%= image_tag avatar_url, class: "avatar-sm"%>
-                <% end %>
-                <% end %>
-                <% end %>
-              </div>
-            </div>
-            <% btn_time += 1 %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+      <%= render 'desks/show', desk: desk %>
     <% end %>
   </div>
   <div class="col-xs-1"></div>
@@ -95,10 +33,10 @@
       <p id="booking-time-range"></p>
       <h5 id="booking-total-cost"></h5>
       <%= simple_form_for(@booking) do |f| %>
-      <%= f.input :desk_id, input_html: { id: "hidden-coffeeshop-name" } %>
-      <%= f.input :start_time, required: true, input_html: { id: "hidden-start-time" } %>
-      <%= f.input :end_time, input_html: { id: "hidden-end-time" } %>
-      <%= f.input :cost, input_html: {id: "hidden-total-cost"} %>
+      <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
+      <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>
+      <%= f.input :end_time, as: :hidden, input_html: { id: "hidden-end-time" } %>
+      <%= f.input :cost, as: :hidden, input_html: {id: "hidden-total-cost"} %>
       <%= f.submit "Reserve", class: "btn btn-darkred", id: "reserve-btn", disabled: "true" %>
       <% end %>
     </div>

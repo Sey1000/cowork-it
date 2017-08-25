@@ -1,0 +1,27 @@
+<ul class="list-group list-inline">
+  <li>
+    <i class="fa fa-calendar-o "></i>
+    <div class="desk-hour">
+      <p><%= desk.str_date %></p>
+      <p><%= desk.start_time.hour %>h - <%= desk.end_time.hour %>h</p>
+    </div>
+  </li>
+  <li>
+    <i class="fa fa-eur"></i>
+    <div class="per-hour-rate">
+      <p> <%= desk.cost %>€ / hour </p>
+    </div>
+  </li>
+  <li>
+    <i class="fa fa-wifi"></i>
+    <p><%= desk.wifi ? "Yes" : "No" %></p>
+  </li>
+  <li>
+    <i class="fa fa-plug"></i>
+    <p><%= desk.power_outlet ? "Yes" : "No" %></p>
+  </li>
+  <li>
+    <i class="fa fa-users"></i>
+    <p>max. <%= desk.capacity %></p>
+  </li>
+</ul>
