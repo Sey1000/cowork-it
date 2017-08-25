@@ -15,7 +15,7 @@ Coffeeshop.destroy_all
 # Seeds for User
 first_names = %w(John Sarah Kris)
 last_names = %w(Brown Miller Green Shaw)
-occupations = %w(Junior Developer, Product Manager, Artist, Web Design Student, Industrial Engineer, Musician, Business Student, Investment Banker)
+occupations = %w(Junior-Developer Product-Manager Artist Web-Design-Student Industrial-Engineer Musician Business-Student Investment-Banker)
 
 about_me1 = Faker::TheFreshPrinceOfBelAir.quote
 about_me2 = Faker::TheFreshPrinceOfBelAir.quote

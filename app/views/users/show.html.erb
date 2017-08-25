@@ -37,10 +37,22 @@
         <%= @user.email %>
       </div>
       <% if !@user.provider && @user == current_user %>
-      <div class="change-password text-center">
-        <%= link_to "Change your password", edit_user_registration_path %>
-      </div>
+        <div class="change-password text-center">
+          <%= link_to "Change your password", edit_user_registration_path %>
+        </div>
       <% end %>
+      <div class="occupation-header">
+        <p>Occupation</p>
+      </div>
+      <div class="occupation">
+        <%= @user.occupation %>
+      </div>
+      <div class="aboutme-header">
+        <p>About Me</p>
+      </div>
+      <div class="aboutme">
+        <%= @user.about_me %>
+      </div>
     </div>
   </div>
 
