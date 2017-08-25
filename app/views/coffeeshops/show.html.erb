@@ -37,7 +37,6 @@
       <p id="booking-time-range"></p>
       <h5 id="booking-total-cost"></h5>
 
-
       <%= simple_form_for(@booking) do |f| %>
       <%= f.input :desk_id, as: :hidden, input_html: { id: "hidden-coffeeshop-name" } %>
       <%= f.input :start_time, as: :hidden, required: true, input_html: { id: "hidden-start-time" } %>

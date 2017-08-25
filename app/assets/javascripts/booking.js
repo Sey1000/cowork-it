@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('#special-booking-filter').click(function() {
         $('.time-select-btn').removeClass('background-gray-button');
         $('#booking-time-range').text("");
