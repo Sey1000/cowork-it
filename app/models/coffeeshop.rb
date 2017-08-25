@@ -3,7 +3,7 @@ class Coffeeshop < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :desks
+  has_many :desks, dependent: :destroy
   has_many :bookings, through: :desks
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
