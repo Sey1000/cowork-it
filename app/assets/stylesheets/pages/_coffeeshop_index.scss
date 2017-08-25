@@ -10,3 +10,14 @@
   flex: 0 0 calc(100vw - 550px);
   margin: 0px 20px;
 }
+
+
+.map-box {
+  position:relative;
+  width: 300px;
+}
+.coffeeshop-price {
+  position:absolute;
+  bottom: 15px;
+  right: 2px;
+}
