@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     if current_user
       @booking.user = current_user
-      @booking.cost = @booking.desk.cost
       @booking.save
       redirect_to user_path(current_user)
     else
@@ -38,6 +37,6 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:desk_id, :start_time, :end_time)
+    params.require(:booking).permit(:desk_id, :start_time, :end_time, :cost)
   end
 end
