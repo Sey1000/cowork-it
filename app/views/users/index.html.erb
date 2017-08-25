@@ -21,8 +21,8 @@
               <%= link_to user_path(user) do %>
                 <% if @user.facebook_picture_url %>
                   <% avatar_url = @user.facebook_picture_url %>
-                <% elsif @user.avatar %>
-                  <% avatar_url = @user.avatar.path %>
+                <% elsif @user.photo %>
+                  <% avatar_url = @user.photo.path %>
                 <% else %>
                   <% avatar_url = "placeholder.jpg" %>
                 <% end %>

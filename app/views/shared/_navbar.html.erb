@@ -15,8 +15,8 @@
           <div class="dropdown">
           <% if current_user.facebook_picture_url %>
             <% avatar_url = current_user.facebook_picture_url %>
-          <% elsif current_user.avatar %>
-              <% avatar_url = current_user.avatar.path %>
+          <% elsif current_user.photo %>
+              <% avatar_url = current_user.photo.path %>
           <% else %>
               <% avatar_url = image_path("placeholder.jpg") %>
           <% end %>

@@ -23,8 +23,8 @@
                 <% if correct_start && correct_end %>
                   <% if book.user.facebook_picture_url %>
                     <% avatar_url = book.user.facebook_picture_url %>
-                  <% elsif book.user.avatar %>
-                    <% avatar_url = cl_image_tag book.user.avatar.path %>
+                  <% elsif book.user.photo %>
+                    <% avatar_url = cl_image_tag book.user.photo.path %>
                   <% else %>
                     <% avatar_url = "placeholder.jpg" %>
                   <% end %>
