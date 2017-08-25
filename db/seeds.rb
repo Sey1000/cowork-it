@@ -26,24 +26,23 @@ about_mes = [about_me1, about_me2, about_me3, about_me4, about_me5]
 
 userA = User.new(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 userA.save
-binding.pry
-userA.photo_url = "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg"
+userA.avatar_url = "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg"
 
 userB = User.new(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 userB.save
-userB.photo_url = "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg"
+userB.avatar_url = "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg"
 
 userC = User.new(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 userC.save
-userC.photo_url = "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg"
+userC.avatar_url = "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg"
 
 userD = User.new(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 userD.save
-userD.photo_url = "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg"
+userD.avatar_url = "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg"
 
 userE = User.new(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 userE.save
-userE.photo_url = "http://www.eleanorfrajka.com/images/profile_pic_square.jpg"
+userE.avatar_url = "http://www.eleanorfrajka.com/images/profile_pic_square.jpg"
 
 
 #Seeds for Coffeeshop
