@@ -3,7 +3,8 @@
   <div class="user-list">
     <%= simple_form_for @user, method: :get do |f| %>
       <%= f.input :name, as: :fake, placeholder: 'Name' %>
-      <%= f.input :occupation, as: :fake %>
+      <%= f.input :occupation %>
+      <!-- , prompt: 'Select Occupation', collection: ["Musician", "Entrepreneur"] %> -->
       <%= f.button :submit, "Find a user", class: 'btn-red btn-search'%>
     <% end %>
   </div>
@@ -30,6 +31,9 @@
                 <div class="user-cards">
                   <%= user.first_name %>
                   <%= user.last_name %>
+                </div>
+                <div class="user-occupation">
+                  <%= user.occupation %>
                 </div>
               <% end %>
             </div>
