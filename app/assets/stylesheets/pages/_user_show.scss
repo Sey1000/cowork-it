@@ -1,5 +1,11 @@
 input#user_avatar {
     display: flex;
+    font-size: 12px;
+}
+.user-names {
+  display: flex;
+  align-items: center;
+
 }
 .user-container {
   display: flex;
@@ -7,10 +13,6 @@ input#user_avatar {
   flex-direction: column;
   height: 700px;
 }
-
-.user-names {
-}
-
 .avatar-lg {
   margin-top: 20px;
 }
