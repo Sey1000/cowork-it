@@ -28,7 +28,9 @@
 .card-bottom {
   position: relative;
   height: 50px;
+  color: $dark-blue;
 }
+
 .card-price {
   position: absolute;
   right: 5px;
@@ -54,28 +56,30 @@
 }
 
 .show-card{
-  position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
   position: relative;
-  color: $dark-blue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .card-description {
-  position: absolute;
-  top: 10px;
-  left: 5%;
-  right: 5%;
   display: block;
+  padding: 20%;
+  text-align: center;
 }
 
 .desk-icons{
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  left: 10px;
   display: flex;
-
+  text-shadow: none;
+  // opacity: 0.6;
 }
 
 .feature {
@@ -83,9 +87,8 @@
 }
 
 .card:hover {
-
   .show-card{
-    background: rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.5);
     opacity: 1;
   }
 

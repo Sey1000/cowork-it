@@ -7,7 +7,7 @@
 
     <div class="row" id="row-home">
       <% @coffeeshops.each do |cs| %>
-        <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability, card_banner_url: cs.picture_url, coffeeshop_subtitle: "", capacity: cs.capacity_overall } %>
+        <%= render partial: 'shared/card', locals: { coffeshop_name: cs.name, link_path: coffeeshop_path(cs), average_desk_price: cs.average_price_per_hour, wifi: cs.wifi_availability, power_outlet: cs.power_outlet_availability, card_banner_url: cs.picture_url, coffeeshop_subtitle: cs.short_description, capacity: cs.capacity_overall } %>
       <% end %>
     </div>
 </div>
