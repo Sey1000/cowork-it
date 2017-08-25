@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
-    if params[:name]
-      input_name = params[:name]
-      @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
-    end
+    @users = filter_users
+
+    # User.all
+    # if params[:name].present?
+    #   @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
+    # elsif params[:user][:occupation].present?
+    #   @users = User.where(occupation: params[:occupation])
+    # end
     # filtering_params(params).each do |key, value|
     #   @users = @users.public_send(key, value.capitalize) if value.present?
     # end
     @user = User.new
   end
-
 
   def show
     @user = User.find(params[:id])
@@ -32,10 +34,25 @@ class UsersController < ApplicationController
 
   private
 
+  def filter_users
+    @users = User.all
+    if params[:name].present? 
+      @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
+      if params[:user][:occupation].present?
+        occupation = params[:user][:occupation]
+        @users = @users.select { |u| u.occupation = occupation }
+      end
+    elsif params[:user].present?
+      occupation = params[:user][:occupation]
+      @users = @users.select { |u| u.occupation = occupation }
+    end
+    return @users
+  end
+
   # A list of the param names that can be used for filtering the Product list
-  # def filtering_params(params)
-  #   params.slice(:name, :occupation)
-# end
+  def filtering_params(params)
+    params.slice(:occupation)
+  end
 
   def user_params
     params.require(:user).permit(:name, :occupation, :avatar)
