@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_attachment :avatar
 
+  scope :first_name, -> (first_name) {where first_name: first_name}
+  scope :last_name, -> (last_name) {where last_name: last_name}
+  scope :occupation, -> (occupation) {where occupation: occupation}
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -26,4 +30,21 @@ class User < ApplicationRecord
 
     return user
   end
+
+
+  def full_name
+
+    first_name + " " + last_name
+  end
+
+  private
+
+  def set_photo
+    if photo_url.nil?
+      self.photo_url = "https://vignette1.wikia.nocookie.net/cutemariobro/images/5/59/Person-placeholder.jpg/revision/latest?cb=20170131092134"
+    end
+  end
+
+
+
 end

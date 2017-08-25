@@ -1,0 +1,39 @@
+.user-list{
+  form {
+    margin: 25px 0 50px 0;
+    text-align: center;
+  }
+}
+.heading {
+  font-family: $logo-font;
+  width: 100%;
+  text-align: center;
+  color: $dark-blue;
+}
+
+.gray-background {
+  background: white;
+}
+.user-name {
+  display: flex;
+  justify-content: center;
+  a {
+  // border: 1px solid $dark-blue;
+  background-color: white;
+    color: $dark-blue;
+    text-decoration: none;
+    text-align: center;
+    padding: 25px 10px 40px 10px;
+    &:hover {
+    }
+  }
+  .class-photos {
+    margin-bottom: 10px;
+  }
+}
+
+.user-cards{
+  padding: 10px;
+  margin: 5px 10px;
+}
+

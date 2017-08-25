@@ -3,7 +3,7 @@ class CoffeeshopsController < ApplicationController
     if params[:address].present?
       @coffeeshops = Coffeeshop.near(params[:address], 5)
       if @coffeeshops.length == 0
-        @statement = "Sorry no coffeeshops found"
+        @statement = "Sorry, we couldn't find any coffeeshops in #{params[:address]}"
       elsif params[:date].present?
         @place = params[:address].downcase.capitalize!
         @coffeeshops = @coffeeshops.reject { |coffeeshop| is_full?(coffeeshop, params[:date]) }
