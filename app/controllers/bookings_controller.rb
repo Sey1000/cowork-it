@@ -10,10 +10,22 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(bookings_params)
+    # if current_user
+    #   @booking.user = current_user
+    #   @booking.save
+    #   redirect_to user_path(current_user)
+    # else
+    #   redirect_to new_user_session_path
+    # end
+    @coffeeshop = @booking.desk.coffeeshop
     if current_user
       @booking.user = current_user
-      @booking.save
-      redirect_to user_path(current_user)
+      if @booking.save
+        redirect_to user_path(current_user)
+      else
+        flash[:error] =  @booking.errors.messages[:user_id][0]
+        redirect_to coffeeshop_path(@coffeeshop)
+      end
     else
       redirect_to new_user_session_path
     end
