@@ -8,6 +8,11 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 
+# Add photos
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+
 # Authentication with devise
 gem 'devise'
 

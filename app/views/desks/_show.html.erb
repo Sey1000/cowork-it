@@ -1,0 +1,37 @@
+    <% start = desk.start_time.hour %>
+    <% end_var = desk.end_time.hour %>
+    <div class="each-desk" data-id="<%= desk.id %>">
+      <div class="desk-head">
+        <p>Desk "<%= desk.name %>"</p>
+        <i class="fa fa-caret-down"></i>
+      </div>
+      <div class="desk-content" style="display:none;">
+        <div class="desk-subhead">
+          <%= render 'desks/subhead', desk: desk %>
+        </div>
+        <div class="desk-body">
+          <div class="desk-time-list">
+            <% btn_time = start %>
+            <% (desk.hour_count).times do %>
+            <% slot_time = desk.start_time.beginning_of_day + btn_time.hours %>
+            <div class="btn btn-white time-select-btn" data-start="<%= btn_time %>" data-end="<%= btn_time + 1 %>" data-start-time="<%= slot_time %>" data-end-time="<%= slot_time + 1.hours %>" data-date="<%= desk.str_date %>" data-cost="<%= desk.cost %>">
+              <%= slot_time.hour %> - <%= slot_time.hour + 1 %> h
+              <div class="desk-avatars">
+                <% desk.bookings.each do |book| %>
+                <% correct_start = btn_time >= book.start_time.hour %>
+                <% correct_end = btn_time + 1 <= book.end_time.hour %>
+                <% if correct_start && correct_end %>
+                <% avatar_url = book.user.facebook_picture_url || book.user.avatar.path %>
+                <%= link_to user_path(book.user) do %>
+                <%= image_tag avatar_url, class: "avatar-sm"%>
+                <% end %>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+            <% btn_time += 1 %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -17,10 +17,15 @@ class UsersController < ApplicationController
     @bookings = @user.bookings
   end
 
+
   private
 
   # A list of the param names that can be used for filtering the Product list
-  def filtering_params(params)
-    params.slice(:name, :occupation)
+  # def filtering_params(params)
+  #   params.slice(:name, :occupation)
+# end
+
+  def user_params
+  params.require(:user).permit(:name, :occupation, :photo)
   end
 end

@@ -16,11 +16,16 @@ Coffeeshop.destroy_all
 first_names = %w(John Sarah Kris)
 last_names = %w(Brown Miller Green Shaw)
 
-userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg")
-userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg")
-userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg")
-userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg")
-userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, photo_url: "http://www.eleanorfrajka.com/images/profile_pic_square.jpg")
+userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+#userA.avatar = "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg")
+userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+#userC.avatar: "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg")
+userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+#userC.avatar: "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg")
+userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+#userC.avatar: "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg")
+userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+#userC.avatar: "http://www.eleanorfrajka.com/images/profile_pic_square.jpg")
 
 #Seeds for Coffeeshop
 short_des1 = Faker::Movie.quote
@@ -53,47 +58,49 @@ coffeeN = Coffeeshop.create(email: "pleasecafe@wagon.com", name: "Volcano's Lava
 
 # Seeds for Desk
 t = Time.now.beginning_of_day + 1.day
-deskA = Desk.new(wifi: true, power_outlet: true, start_time: t + 9.hours, end_time: t +12.hours, cost: 5, capacity: 4)
+desk_names = ["LIV", "PETER PAN", "SEY", "TOY", "SAM", "MEOW", "HEY GUYS", "AUTOMAGICALLY"]
+
+deskA = Desk.new(wifi: true, power_outlet: true, name: desk_names.sample, start_time: t + 9.hours, end_time: t +12.hours, cost: 5, capacity: 5)
 deskA.coffeeshop = coffeeA
 deskA.save
 
-deskB = Desk.new(wifi: true, power_outlet: true, start_time: t + 13.hours, end_time: t + 17.hours, cost: 3, capacity: 5)
+deskB = Desk.new(wifi: true, power_outlet: true, name: desk_names.sample, start_time: t + 13.hours, end_time: t + 17.hours, cost: 3, capacity: 5)
 deskB.coffeeshop = coffeeA
 deskB.save
 
-deskC = Desk.new(wifi: true, power_outlet: true, start_time: t + 14.hours, end_time: t + 17.hours, cost: 10, capacity: 3)
+deskC = Desk.new(wifi: true, power_outlet: true, name: desk_names.sample, start_time: t + 14.hours, end_time: t + 17.hours, cost: 10, capacity: 5)
 deskC.coffeeshop = coffeeB
 deskC.save
 
-deskD = Desk.new(wifi: true, power_outlet: true, start_time: t + 20.hours, end_time: t + 23.hours, cost: 5, capacity: 4)
+deskD = Desk.new(wifi: true, power_outlet: true, name: desk_names.sample, start_time: t + 20.hours, end_time: t + 23.hours, cost: 5, capacity: 5)
 deskD.coffeeshop = coffeeB
 deskD.save
 
-deskE = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskE = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskE.coffeeshop = coffeeC
 deskE.save
 
-deskF = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskF = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskF.coffeeshop = coffeeD
 deskF.save
 
-deskG = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskG = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskG.coffeeshop = coffeeE
 deskG.save
 
-deskH = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskH = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskH.coffeeshop = coffeeF
 deskH.save
 
-deskI = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskI = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskI.coffeeshop = coffeeG
 deskI.save
 
-deskJ = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskJ = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskJ.coffeeshop = coffeeH
 deskJ.save
 
-deskK = Desk.new(wifi: true, power_outlet: false, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
+deskK = Desk.new(wifi: true, power_outlet: false, name: desk_names.sample, start_time: t + 10.hours, end_time: t + 13.hours, cost: 5, capacity: 5)
 deskK.coffeeshop = coffeeI
 deskK.save
 
