@@ -1,4 +1,7 @@
 .user-list{
+  .user-search {
+    padding: 0px 300px;
+  }
   form {
     margin: 25px 0 50px 0;
     text-align: center;
@@ -33,7 +36,9 @@
 }
 
 .user-cards{
-  padding: 10px;
-  margin: 5px 10px;
+  margin: 10px 10px 0px 10px;
 }
 
+.user-occupation {
+  font-size: 16px;
+}

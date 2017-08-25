@@ -1,12 +1,14 @@
-<h1 class= "heading">CoworkIT users</h1>
+<h1 class= "heading">CoworkIT Members</h1>
 <div class="container">
   <div class="user-list">
-    <%= simple_form_for @user, method: :get do |f| %>
-      <%= f.input :name, as: :fake, placeholder: 'Name' %>
-      <%= f.input :occupation %>
-      <!-- , prompt: 'Select Occupation', collection: ["Musician", "Entrepreneur"] %> -->
-      <%= f.button :submit, "Find a user", class: 'btn-red btn-search'%>
-    <% end %>
+    <div class="user-search">
+      <%= simple_form_for @user, method: :get do |f| %>
+        <%= f.input :name, as: :fake, placeholder: 'Name' %>
+        <%= f.input :occupation %>
+        <!-- , prompt: 'Select Occupation', collection: ["Musician", "Entrepreneur"] %> -->
+        <%= f.button :submit, "Find a user", class: 'btn-red btn-search'%>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -20,20 +22,20 @@
           <% @users.each do |user| %>
             <div class="col-xs-6 col-sm-3 user-name">
               <%= link_to user_path(user) do %>
-                <% if @user.facebook_picture_url %>
-                  <% avatar_url = @user.facebook_picture_url %>
-                <% elsif @user.avatar %>
-                  <% avatar_url = @user.avatar.path %>
+                <% if user.facebook_picture_url %>
+                  <% avatar_url = user.facebook_picture_url %>
+                  <%= image_tag avatar_url, class: "avatar-lg" %>
+                <% elsif user.avatar? %>
+                  <%= cl_image_tag user.avatar.path, width: 400, height: 400, crop: :fill, class: "avatar-lg" %>
                 <% else %>
-                  <% avatar_url = "placeholder.jpg" %>
+                  <%= image_tag "placeholder.jpg", class: "avatar-lg"%>
                 <% end %>
-                <%= image_tag avatar_url, class: "class-photos avatar-comment" %>
                 <div class="user-cards">
                   <%= user.first_name %>
                   <%= user.last_name %>
                 </div>
                 <div class="user-occupation">
-                  <%= user.occupation %>
+                 <em> <%= user.occupation %> </em>
                 </div>
               <% end %>
             </div>

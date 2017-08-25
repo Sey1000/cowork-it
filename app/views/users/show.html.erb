@@ -4,7 +4,7 @@
       <% avatar_url = @user.facebook_picture_url %>
       <%= image_tag avatar_url, class: "avatar-lg" %>
     <% elsif @user.avatar? %>
-      <%= cl_image_tag @user.avatar.path, width: 400, height: 300, crop: :fill, class: "avatar-lg" %>
+      <%= cl_image_tag @user.avatar.path, width: 400, height: 400, crop: :fill, class: "avatar-lg" %>
     <% else %>
       <%= image_tag "placeholder.jpg", class: "avatar-lg"%>
     <% end %>
