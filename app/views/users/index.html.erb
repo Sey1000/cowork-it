@@ -2,9 +2,9 @@
 <div class="container">
   <div class="user-list">
     <div class="user-search">
-      <%= simple_form_for @user, method: :get do |f| %>
+      <%= simple_form_for (@user), method: :get do |f| %>
         <%= f.input :name, as: :fake, placeholder: 'Name' %>
-        <%= f.input :occupation %>
+        <%= f.input :occupation, collection: @occs %>
         <!-- , prompt: 'Select Occupation', collection: ["Musician", "Entrepreneur"] %> -->
         <%= f.button :submit, "Find a user", class: 'btn-red btn-search'%>
       <% end %>
@@ -19,23 +19,23 @@
         <h2>Sorry, we couldnt find any users to your search :( </h2>
       <% else %>
         <div class="row gray-background" id="user-info">
-          <% @users.each do |user| %>
+          <% @users.each do |us_er| %>
             <div class="col-xs-6 col-sm-3 user-name">
-              <%= link_to user_path(user) do %>
-                <% if user.facebook_picture_url %>
-                  <% avatar_url = user.facebook_picture_url %>
+              <%= link_to user_path(us_er) do %>
+                <% if us_er.facebook_picture_url %>
+                  <% avatar_url = us_er.facebook_picture_url %>
                   <%= image_tag avatar_url, class: "avatar-lg" %>
-                <% elsif user.avatar? %>
-                  <%= cl_image_tag user.avatar.path, width: 400, height: 400, crop: :fill, class: "avatar-lg" %>
+                <% elsif us_er.avatar? %>
+                  <%= cl_image_tag us_er.avatar.path, width: 400, height: 400, crop: :fill, class: "avatar-lg" %>
                 <% else %>
                   <%= image_tag "placeholder.jpg", class: "avatar-lg"%>
                 <% end %>
                 <div class="user-cards">
-                  <%= user.first_name %>
-                  <%= user.last_name %>
+                  <%= us_er.first_name %>
+                  <%= us_er.last_name %>
                 </div>
                 <div class="user-occupation">
-                 <em> <%= user.occupation %> </em>
+                 <em> <%= us_er.occupation %> </em>
                 </div>
               <% end %>
             </div>
