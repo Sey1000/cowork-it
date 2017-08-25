@@ -23,6 +23,13 @@
   }
 }
 
+.navbar-fixed {
+  background-color: transparent;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
