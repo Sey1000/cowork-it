@@ -98,7 +98,6 @@ p {
         &:hover {
           border-color: $medium-gray;
         }
-
         .desk-avatars {
           position: absolute;
           height: 50px;
@@ -106,14 +105,11 @@ p {
           top: 13px;
         }
       }
-
       .background-gray-button {
-          // PLEASE CHANGE MY COLORS FOR BETTER DESIGN
-          background-color: $medium-gray;
-          color: white;
-        }
+        // PLEASE CHANGE MY COLORS FOR BETTER DESIGN
+        background-color: $medium-gray;
+        color: white;
       }
-
       .desk-avatars-container {
         display: flex;
         flex-direction: column;
@@ -130,65 +126,67 @@ p {
       }
     }
   }
+}
 
-  .col-xs-3.summary-right {
-    padding: 0;
-  }
-  .summary-right {
-    z-index: 100;
-    .btn-darkred {
-      width: 200px;
-      color: white;
-      background-color: $dark-red;
-      &:hover{
-        background-color: #ba2138;
-      }
+.col-xs-3.summary-right {
+  padding: 0;
+}
+
+.summary-right {
+  z-index: 100;
+  position: fixed;
+  right: 8%;
+  top: 40vh;
+  border: 1px solid $dark-gray;
+  border-radius: 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(250,250,250,0.6);
+
+  .btn-darkred {
+    width: 200px;
+    color: white;
+    background-color: $dark-red;
+    &:hover{
+      background-color: #ba2138;
     }
-    position: fixed;
-    right: 8%;
-    top: 30vh;
-    border: 1px solid $dark-gray;
-    border-radius: 3px;
-    text-align: center;
+  }
+  .summary-head {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(250,250,250,0.6);
-
-    .summary-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      height: 40px;
-      border: 1px solid $dark-gray;
-      margin-bottom: 20px;
-      width: 100%;
-      color: white;
-      background-color: rgba(130,128,128, 0.7);
-      border: 1px solid rgba(255,255,255, 0.7);
-    }
-
-    .summary-body {
-      margin-bottom: 20px;
-
-      #booking-total-cost {
-        font-family: $headers-font;
-        font-weight: bolder;
-        // font-size: 1em;
-      }
-    }
-  }
-
-  .remove-margins {
-    margin: 0;
-  }
-
-  #special-booking-filter {
-    position: fixed;
-    background-color: black;
-    opacity: 0;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+    border: 1px solid $dark-gray;
+    margin-bottom: 20px;
     width: 100%;
-    top: 70px;
-    bottom: 0;
-    z-index: 99;
+    color: white;
+    background-color: rgba(130,128,128, 0.7);
+    border: 1px solid rgba(255,255,255, 0.7);
   }
+
+  .summary-body {
+    margin-bottom: 20px;
+    #booking-total-cost {
+      font-family: $headers-font;
+      font-weight: bolder;
+      // font-size: 1em;
+    }
+  }
+}
+
+.remove-margins {
+  margin: 0;
+}
+
+#special-booking-filter {
+  position: fixed;
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  top: 70px;
+  bottom: 0;
+  z-index: 99;
+}
+
