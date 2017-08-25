@@ -10,12 +10,14 @@
     <% end %>
   </div>
   <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
-  <div class="upload-profile-pic">
-    <%= simple_form_for (@user) do |f| %>
-      <%= f.input :avatar, as: :attachinary, label: false %>
-      <%= f.submit "Update Photo", class: "btn btn-photo" %>
+  <% if @user == current_user %>
+    <div class="upload-profile-pic">
+      <%= simple_form_for (@user) do |f| %>
+        <%= f.input :avatar, as: :attachinary, label: false %>
+        <%= f.submit "Update Photo", class: "btn btn-photo" %>
+      <% end %>
+    </div>
     <% end %>
-  </div>
   <div class="profile">
     <div class="profile-grid">
       <div class="profile-header">
