@@ -1,7 +1,7 @@
 .card {
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   color: white;
-  margin: 10px 15px;
+  margin: 20px 30px;
   border: 1px solid rgba(230,230,230,0.4);
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   position: relative;
@@ -11,6 +11,8 @@
   background-position: center;
   position: relative;
   height: 150px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 .card-name {
   position: absolute;
@@ -29,17 +31,20 @@
   position: relative;
   height: 50px;
   color: $dark-blue;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .card-price {
   position: absolute;
-  right: 5px;
-  bottom: 10px;
+  right: 20px;
+  bottom: 14px;
   color: $dark-blue;
+  font-size: 16px;
 }
 .card-user {
   position: absolute;
-  left: 10px;
+  left: 20px;
   bottom: 5px;
   border-radius: 50%;
   display: flex;
@@ -53,6 +58,7 @@
   z-index: 2;
   background: black;
   opacity: 0;
+  border-radius: 6px;
 }
 
 .show-card{
@@ -75,10 +81,11 @@
 
 .desk-icons{
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 13px;
+  left: 20px;
   display: flex;
   text-shadow: none;
+  font-size: 15px;
   // opacity: 0.6;
 }
 
