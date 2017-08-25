@@ -50,7 +50,6 @@
       <div class="bookings-header">
         <p>Your Bookings</p>
       </div>
-
       <% if @bookings.length > 0 %>
         <div class="date-header">
           <p>Date</p>
@@ -95,9 +94,10 @@
         <div class="coffeeshop-name">
           <p>
             <% @bookings.each do |book| %>
-            <%= book.desk.coffeeshop.name %>
+              <% @coffeeshop = book.desk.coffeeshop %>
+            <%= link_to @coffeeshop.name, coffeeshop_path(@coffeeshop)%>
             <br>
-            <% end %>
+            <% end %>            
           </p>
         </div>
         <div class="cancel">
@@ -105,7 +105,6 @@
             <% if book.start_time - Time.now > 1 %>
                 <%= button_to "cancel", book, :method => :delete, class:'btn btn-red btn-cancel' %>
             <% end %>
-            <br>
             <% end %>
         </div>
         <% end %>
