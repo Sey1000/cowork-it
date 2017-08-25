@@ -1,13 +1,22 @@
 <div class="user-container">
   <div class="profile-pic">
-    <% avatar_url = @user.facebook_picture_url || @user.photo_url %>
-    <%= image_tag avatar_url, class: "avatar-lg" %>
+    <% if @user.facebook_picture_url %>
+      <% avatar_url = @user.facebook_picture_url %>
+      <%= image_tag avatar_url, class: "avatar-lg" %>
+    <% elsif @user.avatar %>
+      <%= cl_image_tag @user.avatar.path, class: "avatar-lg" %>
+    <% else %>
+      <%= image_tag "placeholder.jpg", class: "avatar-lg" %>
+    <% end %>
   </div>
   <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
+    <%= simple_form_for [@user] do |f| %>
+    <%= f.input :avatar, as: :attachinary, label: false %>
+  <% end %>
   <div class="profile">
     <div class="profile-grid">
       <div class="profile-header">
-        <p>Profile Data</p>
+        <p>Profile</p>
       </div>
       <div class="first_name-header">
         <p>First Name</p>
@@ -41,63 +50,67 @@
       <div class="bookings-header">
         <p>Your Bookings</p>
       </div>
-      <div class="date-header">
-        <p>Date</p>
-      </div>
-      <div class="date">
-        <p>
-          <% @bookings.each do |book| %>
-          <%= book.start_time.strftime("%d.%m.%Y") %>
-          <br>
-          <% end %>
-        </p>
-      </div>
-      <div class="time-header text-center">
-        <p>Time</p>
-      </div>
-      <div class="time text-center">
-        <p>
-          <% @bookings.each do |book| %>
-          <%= book.start_time.hour %> - <%= book.end_time.hour %>
-          <br>
-          <% end %>
-        </p>
-      </div>
-      <div class="cost-header text-center">
-        <p>Cost</p>
-      </div>
-      <div class="cost text-center">
-        <p>
-          <% @bookings.each do |book| %>
-          <% unless book.cost.nil? %>
-          <%= book.cost %> €
-          <% else %>
-          -
-          <% end %>
-          <br>
-          <% end %>
-        </p>
-      </div>
-      <div class="coffeeshop-header">
-        <p>Coffeeshop</p>
-      </div>
-      <div class="coffeeshop-name">
-        <p>
-          <% @bookings.each do |book| %>
-          <%= book.desk.coffeeshop.name %>
-          <br>
-          <% end %>
-        </p>
-      </div>
-      <div class="cancel">
-          <% @bookings.each do |book| %>
-          <% if book.start_time - Time.now > 1 %>
-              <%= button_to "cancel", book, :method => :delete, class:'btn btn-red btn-cancel' %>
-          <% end %>
-          <br>
-          <% end %>
+
+      <% if @bookings.length > 0 %>
+        <div class="date-header">
+          <p>Date</p>
+        </div>
+        <div class="date">
+          <p>
+            <% @bookings.each do |book| %>
+            <%= book.start_time.strftime("%d.%m.%Y") %>
+            <br>
+            <% end %>
+          </p>
+        </div>
+        <div class="time-header text-center">
+          <p>Time</p>
+        </div>
+        <div class="time text-center">
+          <p>
+            <% @bookings.each do |book| %>
+            <%= book.start_time.hour %> - <%= book.end_time.hour %>
+            <br>
+            <% end %>
+          </p>
+        </div>
+        <div class="cost-header text-center">
+          <p>Cost</p>
+        </div>
+        <div class="cost text-center">
+          <p>
+            <% @bookings.each do |book| %>
+            <% unless book.cost.nil? %>
+            <%= book.cost %> €
+            <% else %>
+            -
+            <% end %>
+            <br>
+            <% end %>
+          </p>
+        </div>
+        <div class="coffeeshop-header">
+          <p>Coffeeshop</p>
+        </div>
+        <div class="coffeeshop-name">
+          <p>
+            <% @bookings.each do |book| %>
+            <%= book.desk.coffeeshop.name %>
+            <br>
+            <% end %>
+          </p>
+        </div>
+        <div class="cancel">
+            <% @bookings.each do |book| %>
+            <% if book.start_time - Time.now > 1 %>
+                <%= button_to "cancel", book, :method => :delete, class:'btn btn-red btn-cancel' %>
+            <% end %>
+            <br>
+            <% end %>
+        </div>
+        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+
