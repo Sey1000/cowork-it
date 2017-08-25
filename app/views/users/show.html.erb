@@ -50,8 +50,6 @@
       <div class="bookings-header">
         <p>Your Bookings</p>
       </div>
-<<<<<<< HEAD
-
       <% if @bookings.length > 0 %>
         <div class="date-header">
           <p>Date</p>
@@ -95,11 +93,11 @@
         </div>
         <div class="coffeeshop-name">
           <p>
-          <% @bookings.each do |book| %>
-            <% @coffeeshop = book.desk.coffeeshop %>
-          <%= link_to @coffeeshop.name, coffeeshop_path(@coffeeshop)%>
-          <br>
-          <% end %>
+            <% @bookings.each do |book| %>
+              <% @coffeeshop = book.desk.coffeeshop %>
+            <%= link_to @coffeeshop.name, coffeeshop_path(@coffeeshop)%>
+            <br>
+            <% end %>
           </p>
         </div>
         <div class="cancel">
