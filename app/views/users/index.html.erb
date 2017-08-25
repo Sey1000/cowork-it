@@ -22,9 +22,9 @@
                 <% if @user.facebook_picture_url %>
                   <% avatar_url = @user.facebook_picture_url %>
                 <% elsif @user.avatar %>
-                  <%= avatar_url = @user.avatar.path %>
+                  <% avatar_url = @user.avatar.path %>
                 <% else %>
-                  <%= avatar_url = "placeholder.jpg" %>
+                  <% avatar_url = "placeholder.jpg" %>
                 <% end %>
                 <%= image_tag avatar_url, class: "class-photos avatar-comment" %>
                 <div class="user-cards">
