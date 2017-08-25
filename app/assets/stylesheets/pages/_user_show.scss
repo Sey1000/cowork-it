@@ -83,7 +83,7 @@
   font-family: $headers-font;
   font-weight: bold;
   grid-row: 6 / span 1;
-  grid-column: 1/ span 4;
+  grid-column: 1/ span 5;
   border-bottom: 1px solid rgb(220,220,220);
   p {
     margin-bottom: 3px;
@@ -149,3 +149,6 @@
   overflow: visible;
 }
 
+.btn-cancel {
+
+}
