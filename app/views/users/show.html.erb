@@ -3,15 +3,15 @@
     <% if @user.facebook_picture_url %>
       <% avatar_url = @user.facebook_picture_url %>
       <%= image_tag avatar_url, class: "avatar-lg" %>
-    <% elsif @user.photo? %>
-      <%= cl_image_tag @user.photo.path, width: 400, height: 300, crop: :fill, class: "avatar-lg" %>
+f    <% elsif @user.avatar? %>
+      <%= cl_image_tag @user.avatar.path, width: 400, height: 300, crop: :fill, class: "avatar-lg" %>
     <% else %>
       <%= image_tag "placeholder.jpg", class: "avatar-lg"%>
     <% end %>
   </div>
   <h3 class="user-names"><%= @user.first_name %> <%= @user.last_name %></h3>
     <%= simple_form_for (@user) do |f| %>
-    <%= f.input :photo, as: :attachinary, label: false %>
+    <%= f.input :avatar, as: :attachinary, label: false %>
     <%= f.submit "pick it!", class: "btn btn-primary" %>
   <% end %>
   <div class="profile">

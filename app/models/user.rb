@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   has_many :bookings, dependent: :destroy
-  has_attachment :photo
+  has_attachment :avatar
 
   scope :first_name, -> (first_name) {where first_name: first_name}
   scope :last_name, -> (last_name) {where last_name: last_name}
