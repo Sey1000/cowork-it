@@ -15,16 +15,24 @@ Coffeeshop.destroy_all
 # Seeds for User
 first_names = %w(John Sarah Kris)
 last_names = %w(Brown Miller Green Shaw)
+occupations = %w(Junior Developer, Product Manager, Artist, Web Design Student, Industrial Engineer, Musician, Business Student, Investment Banker)
 
-userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+about_me1 = Faker::TheFreshPrinceOfBelAir.quote
+about_me2 = Faker::TheFreshPrinceOfBelAir.quote
+about_me3 = Faker::TheFreshPrinceOfBelAir.quote
+about_me4 = Faker::TheFreshPrinceOfBelAir.quote
+about_me5 = Faker::TheFreshPrinceOfBelAir.quote
+about_mes = [about_me1, about_me2, about_me3, about_me4, about_me5]
+
+userA = User.create(email: 'herro@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 #userA.avatar = "http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg")
-userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+userB = User.create(email: 'meow@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 #userC.avatar: "http://whysquare.co.nz/wp-content/uploads/2013/07/profile_square3-270x270.jpg")
-userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+userC = User.create(email: 'bleh@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 #userC.avatar: "https://soundsplash-app.s3.amazonaws.com/uploads/user/profile_picture/23/Profile_Pic_Square.jpg")
-userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+userD = User.create(email: 'woof@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 #userC.avatar: "http://mohamed-hamad.com/wp-content/uploads/2013/11/Profile-square.jpg")
-userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample)
+userE = User.create(email: 'kris@wagon.com', password: '123456', password_confirmation: '123456', first_name: first_names.sample, last_name: last_names.sample, occupation: occupations.sample, about_me: about_mes.sample)
 #userC.avatar: "http://www.eleanorfrajka.com/images/profile_pic_square.jpg")
 
 #Seeds for Coffeeshop
