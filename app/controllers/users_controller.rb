@@ -17,6 +17,19 @@ class UsersController < ApplicationController
     @bookings = @user.bookings
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.save
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
+  end
 
   private
 
@@ -26,6 +39,6 @@ class UsersController < ApplicationController
 # end
 
   def user_params
-  params.require(:user).permit(:name, :occupation, :photo)
+  params.require(:user).permit(:name, :occupation, :avatar)
   end
 end
