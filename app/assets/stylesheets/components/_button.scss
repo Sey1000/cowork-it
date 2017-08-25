@@ -12,6 +12,19 @@
   }
 }
 
+.btn-photo {
+  background-color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  color: $dark-blue;
+  padding: 5px 78px;
+  border-radius: 5px;
+  border: 1px solid $dark-blue;
+  &:hover{
+    background-color: $dark-blue;
+    color: white;
+  }
+}
+
 .btn-red {
   background-color: $dark-red;
   color: white;
