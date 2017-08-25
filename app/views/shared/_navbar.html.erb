@@ -14,13 +14,13 @@
         <div class="navbar-wagon-item">
           <div class="dropdown">
           <% if current_user.facebook_picture_url %>
-            <% avatar_url = current_user.facebook_picture_url %>
+
+            <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% elsif current_user.avatar %>
-              <% avatar_url = current_user.avatar.path %>
+          <%= cl_image_tag current_user.avatar.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"  %>
           <% else %>
-              <% avatar_url = image_path("placeholder.jpg") %>
+              <%= image_tag image_path("placeholder.jpg"), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
-            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li>
@@ -36,6 +36,7 @@
             </ul>
           </div>
         </div>
+      </div>
       </div>
       <!-- dropdown list appearing on mobile only -->
       <div class="navbar-wagon-item hidden-md hidden-lg">
