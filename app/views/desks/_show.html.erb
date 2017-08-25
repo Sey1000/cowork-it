@@ -21,10 +21,18 @@
                 <% correct_start = btn_time >= book.start_time.hour %>
                 <% correct_end = btn_time + 1 <= book.end_time.hour %>
                 <% if correct_start && correct_end %>
-                <% avatar_url = book.user.facebook_picture_url || book.user.avatar.path %>
-                <%= link_to user_path(book.user) do %>
-                <%= image_tag avatar_url, class: "avatar-sm"%>
-                <% end %>
+                  <% if book.user.facebook_picture_url %>
+                    <% avatar_url = book.user.facebook_picture_url %>
+                  <% elsif book.user.avatar %>
+                    <% avatar_url = cl_image_tag book.user.avatar.path %>
+                  <% else %>
+                    <% avatar_url = "placeholder.jpg" %>
+                  <% end %>
+
+                  <%= link_to user_path(book.user) do %>
+                  <%= image_tag avatar_url, class: "avatar-sm"%>
+                  <% end %>
+
                 <% end %>
                 <% end %>
               </div>
