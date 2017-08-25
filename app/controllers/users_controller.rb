@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
+    @occs = []
     @users = filter_users
-
+    @occs = @occs.uniq
     # User.all
     # if params[:name].present?
     #   @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
@@ -36,15 +37,18 @@ class UsersController < ApplicationController
 
   def filter_users
     @users = User.all
+    @users.each do |us|
+      @occs << us.occupation
+    end
     if params[:name].present? 
       @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
       if params[:user][:occupation].present?
         occupation = params[:user][:occupation]
-        @users = @users.select { |u| u.occupation = occupation }
+        @users = @users.select { |u| u.occupation == occupation }
       end
     elsif params[:user].present?
       occupation = params[:user][:occupation]
-      @users = @users.select { |u| u.occupation = occupation }
+      @users = @users.select { |u| u.occupation == occupation }
     end
     return @users
   end
