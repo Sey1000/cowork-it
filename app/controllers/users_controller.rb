@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
     if params[:name]
       input_name = params[:name]
-      @users = User.where(full_name.include? input_name)
+      @users = @users.select { |u| u.full_name.include?(params[:name].capitalize) }
     end
     # filtering_params(params).each do |key, value|
     #   @users = @users.public_send(key, value.capitalize) if value.present?

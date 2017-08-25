@@ -12,20 +12,28 @@
 }
 
 .gray-background {
-  background: transparent;
+  background: white;
 }
 .user-name {
+  display: flex;
+  justify-content: center;
   a {
+  // border: 1px solid $dark-blue;
+  background-color: white;
     color: $dark-blue;
     text-decoration: none;
     text-align: center;
+    padding: 25px 10px 40px 10px;
     &:hover {
     }
+  }
+  .class-photos {
+    margin-bottom: 10px;
   }
 }
 
 .user-cards{
   padding: 10px;
-  background-color: #e6bc80;
   margin: 5px 10px;
 }
+
