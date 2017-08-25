@@ -1,6 +1,6 @@
-<h2><%= coffeeshop.name %></h2>
-<h3><%= coffeeshop.address %></h3>
-<p><%= coffeeshop.website %></p>
+<div class="map-box"><h3><%= coffeeshop.name %></h3>
+<p><%= coffeeshop.address %></p>
+<p><%= link_to coffeeshop.website%></p>
 <% availability = 0 %>
 <% coffeeshop.desks.each do |desk| %>
 
@@ -9,7 +9,10 @@
   <% end %>
 <% end %>
 <p><%= availability %> spots left!</p>
-
+<div class="coffeeshop-price">
+  <strong> <%= coffeeshop.average_price_per_hour %></strong>
+</div>
 
 <%= link_to "Check it out!", coffeeshop, class: "btn btn-primary" %>
 
+</div>
