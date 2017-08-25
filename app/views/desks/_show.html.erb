@@ -21,7 +21,7 @@
                 <% correct_start = btn_time >= book.start_time.hour %>
                 <% correct_end = btn_time + 1 <= book.end_time.hour %>
                 <% if correct_start && correct_end %>
-                <% avatar_url = book.user.facebook_picture_url || book.user.photo_url %>
+                <% avatar_url = book.user.facebook_picture_url || book.user.avatar.path %>
                 <%= link_to user_path(book.user) do %>
                 <%= image_tag avatar_url, class: "avatar-sm"%>
                 <% end %>
